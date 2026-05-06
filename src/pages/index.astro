@@ -16,64 +16,9 @@ const socialLinks = [
   { id: 'github', label: 'GitHub', url: githubUrl }
 ];
 
-const valuePillars = [
-  {
-    title: { es: 'Investigacion primero', en: 'Research-first' },
-    body: {
-      es: 'Investigo contexto, detecto lo importante y organizo la informacion antes de producir.',
-      en: 'I research context, spot what matters, and organize information before producing.'
-    }
-  },
-  {
-    title: { es: 'Ejecucion con estructura', en: 'Execution with structure' },
-    body: {
-      es: 'Convierto briefs, noticias o ideas sueltas en entregables claros, visuales y listos para publicar.',
-      en: 'I turn briefs, news, or rough ideas into clear, visual, ready-to-publish deliverables.'
-    }
-  },
-  {
-    title: { es: 'Operaciones creativas', en: 'Creative operations' },
-    body: {
-      es: 'Combino contenido, sistemas y soporte operativo para que marcas y creators avancen mas rapido.',
-      en: 'I combine content, systems, and operational support so brands and creators can move faster.'
-    }
-  }
-];
-
-const strengths = [
-  {
-    label: { es: 'Investigacion y sintesis', en: 'Research and synthesis' },
-    detail: {
-      es: 'Lectura de contexto, busqueda de fuentes, bases de datos y organizacion de informacion.',
-      en: 'Context reading, source gathering, database work, and information organization.'
-    }
-  },
-  {
-    label: { es: 'Empaque de contenido', en: 'Content packaging' },
-    detail: {
-      es: 'Carruseles, captions, conceptos, newsletters y assets visuales con criterio editorial.',
-      en: 'Carousels, captions, concepts, newsletters, and visual assets with editorial judgment.'
-    }
-  },
-  {
-    label: { es: 'Operaciones y resolucion de problemas', en: 'Operations and problem solving' },
-    detail: {
-      es: 'Seguimiento, velocidad de ejecucion, resolucion de casos y mejora de flujos de trabajo.',
-      en: 'Follow-through, fast execution, case resolution, and workflow improvement.'
-    }
-  },
-  {
-    label: { es: 'Workflows asistidos con IA', en: 'AI-assisted workflows' },
-    detail: {
-      es: 'Uso herramientas agentic y de codigo para investigar, estructurar y acelerar entregables.',
-      en: 'I use agentic and coding tools to research, structure, and accelerate deliverables.'
-    }
-  }
-];
-
 const services = [
   {
-    title: { es: 'Investigacion y empaque de contenido', en: 'Content research and packaging' },
+    title: { es: 'Investigación y empaque de contenido', en: 'Content research and packaging' },
     body: {
       es: 'Investigo eventos, noticias, temas o referencias y los convierto en piezas listas para redes o newsletters.',
       en: 'I research events, news, topics, or references and turn them into social or newsletter-ready assets.'
@@ -82,44 +27,16 @@ const services = [
   {
     title: { es: 'Operaciones de contenido digital', en: 'Digital content operations' },
     body: {
-      es: 'Organizo calendarios, publicaciones, sistemas de informacion y procesos de apoyo para equipos pequenos.',
+      es: 'Organizo calendarios, publicaciones, sistemas de información y procesos de apoyo para equipos pequeños.',
       en: 'I organize calendars, publishing workflows, information systems, and support processes for small teams.'
     }
   },
   {
-    title: { es: 'Edicion de video y soporte para canales', en: 'Video editing and channel support' },
+    title: { es: 'Edición de video y soporte para canales', en: 'Video editing and channel support' },
     body: {
       es: 'Edito videos en DaVinci Resolve, preparo thumbnails y apoyo el paquete de contenido para YouTube.',
       en: 'I edit in DaVinci Resolve, prepare thumbnails, and support the full YouTube content package.'
     }
-  }
-];
-
-const projectHighlights = [
-  {
-    type: { es: 'Produccion para newsletters', en: 'Newsletter production' },
-    title: { es: 'Carruseles de eventos y noticias locales para Scottsdale', en: 'Scottsdale event and local news carousels' },
-    body: {
-      es: 'Investigo la informacion, la restructuro y la convierto en paquetes de carruseles para una marca editorial local.',
-      en: 'I research the information, restructure it, and turn it into carousel packages for a local editorial brand.'
-    }
-  },
-  {
-    type: { es: 'Produccion para YouTube', en: 'YouTube production' },
-    title: { es: 'Edicion, thumbnails y soporte para workflows de creators', en: 'Editing, thumbnails, and support for creator workflows' },
-    body: {
-      es: 'Trabajo la edicion, el ritmo visual y el empaque de contenido para un canal de YouTube enfocado en tecnologia.',
-      en: 'I handle editing, visual pacing, and content packaging for a technology-focused YouTube channel.'
-    }
-  },
-  {
-    type: { es: 'Investigacion academica', en: 'Academic research' },
-    title: { es: 'Proyecto de investigacion publicado en el repositorio de la Universidad de Antioquia', en: 'Research project published in Universidad de Antioquia repository' },
-    body: {
-      es: 'Mi formacion investigativa respalda mi manera de leer contexto, justificar decisiones y estructurar informacion.',
-      en: 'My research background supports how I read context, justify decisions, and structure information.'
-    },
-    url: 'https://bibliotecadigital.udea.edu.co/entities/publication/abe87a33-d2b6-464d-89b4-435ab92a2d61'
   }
 ];
 
@@ -129,7 +46,7 @@ const prefixedFiles = (prefix, total) => Array.from({ length: total }, (_, index
 
 const canvaCampaigns = [
   { slug: 'il-bracco', title: { es: 'Il Bracco', en: 'Il Bracco' }, files: numberedFiles(4) },
-  { slug: 'dia-de-muertos-scottsdale', title: { es: 'Dia de Muertos Scottsdale', en: 'Dia de Muertos Scottsdale' }, files: numberedFiles(4) },
+  { slug: 'dia-de-muertos-scottsdale', title: { es: 'Día de Muertos Scottsdale', en: 'Dia de Muertos Scottsdale' }, files: numberedFiles(4) },
   { slug: 'dreamy-draw-music-festival', title: { es: 'Dreamy Draw Music Festival', en: 'Dreamy Draw Music Festival' }, files: numberedFiles(4) },
   { slug: 'western-week', title: { es: 'Western Week', en: 'Western Week' }, files: numberedFiles(3) },
   { slug: 'la-la-land-kind-cafe', title: { es: 'La La Land Kind Cafe', en: 'La La Land Kind Cafe' }, files: numberedFiles(4) },
@@ -137,9 +54,9 @@ const canvaCampaigns = [
   { slug: 'city-winery', title: { es: 'City Winery', en: 'City Winery' }, files: numberedFiles(4) },
   { slug: 'virgen-del-carmen', title: { es: 'Virgen del Carmen (ES/EN)', en: 'Virgen del Carmen (ES/EN)' }, files: [...prefixedFiles('es', 5), ...prefixedFiles('en', 5)] },
   { slug: 'carrusel-julio-25-28', title: { es: 'Carrusel Julio 25-28 (ES/EN)', en: 'July 25-28 Carousel (ES/EN)' }, files: [...prefixedFiles('es', 7), ...prefixedFiles('en', 7)] },
-  { slug: 'estratos-medellin-espanol', title: { es: 'Estratos Medellin (Espanol)', en: 'Estratos Medellin (Spanish)' }, files: numberedFiles(6) },
-  { slug: 'navidad-en-medellin-espanol', title: { es: 'Navidad en Medellin (Espanol)', en: 'Christmas in Medellin (Spanish)' }, files: numberedFiles(5) },
-  { slug: 'conciertos-medellin', title: { es: 'Conciertos Medellin (ES/EN)', en: 'Medellin Concerts (ES/EN)' }, files: [...prefixedFiles('es', 7), ...prefixedFiles('en', 7)] }
+  { slug: 'estratos-medellin-espanol', title: { es: 'Estratos Medellín (Español)', en: 'Estratos Medellin (Spanish)' }, files: numberedFiles(6) },
+  { slug: 'navidad-en-medellin-espanol', title: { es: 'Navidad en Medellín (Español)', en: 'Christmas in Medellin (Spanish)' }, files: numberedFiles(5) },
+  { slug: 'conciertos-medellin', title: { es: 'Conciertos Medellín (ES/EN)', en: 'Medellin Concerts (ES/EN)' }, files: [...prefixedFiles('es', 7), ...prefixedFiles('en', 7)] }
 ].map((campaign) => ({
   ...campaign,
   slides: campaign.files.map((file, index) => ({
@@ -148,11 +65,119 @@ const canvaCampaigns = [
   }))
 }));
 
-const aiTools = [
-  { name: 'Notion', label: 'Notion', icon: `${import.meta.env.BASE_URL}tool-logos/notion.svg` },
-  { name: 'OpenAI', label: 'ChatGPT Codex', icon: `${import.meta.env.BASE_URL}tool-logos/openai.svg` },
-  { name: 'Perplexity', label: 'Perplexity', icon: `${import.meta.env.BASE_URL}tool-logos/perplexity.svg` },
-  { name: 'Git', label: 'Git / GitHub', icon: `${import.meta.env.BASE_URL}tool-logos/git.svg` }
+const featuredCampaignSlugs = ['dia-de-muertos-scottsdale', 'il-bracco', 'conciertos-medellin'];
+const archiveCampaigns = canvaCampaigns.filter((campaign) => !featuredCampaignSlugs.includes(campaign.slug));
+
+const navLinks = [
+  { href: '#work', label: { es: 'Trabajo', en: 'Work' } },
+  { href: '#services', label: { es: 'Servicios', en: 'Services' } },
+  { href: '#process', label: { es: 'Proceso', en: 'Process' } },
+  { href: '#experience', label: { es: 'Experiencia', en: 'Experience' } },
+  { href: '#contact', label: { es: 'Contacto', en: 'Contact' } }
+];
+
+const proofStats = [
+  { value: '75+', label: { es: 'slides de portfolio', en: 'portfolio slides' } },
+  { value: 'ES/EN', label: { es: 'contenido bilingüe', en: 'bilingual content' } },
+  { value: '2024+', label: { es: 'producción freelance', en: 'freelance production' } }
+];
+
+const featuredCaseStudies = [
+  {
+    eyebrow: { es: 'Contenido local', en: 'Local content' },
+    title: {
+      es: 'Carruseles de eventos y cultura para Scottsdale',
+      en: 'Event and culture carousels for Scottsdale'
+    },
+    problem: {
+      es: 'Convertir información dispersa de restaurantes, fechas y eventos en piezas fáciles de leer.',
+      en: 'Turn scattered restaurant, date, and event information into easy-to-read social pieces.'
+    },
+    role: {
+      es: 'Research, estructura, copy corto y empaque visual en Canva.',
+      en: 'Research, structure, short copy, and visual packaging in Canva.'
+    },
+    outcome: {
+      es: 'Paquetes listos para publicar con contexto claro y ritmo editorial.',
+      en: 'Ready-to-publish packages with clear context and editorial pacing.'
+    },
+    image: `${portfolioBaseUrl}/dia-de-muertos-scottsdale/1.png`
+  },
+  {
+    eyebrow: { es: 'Food and lifestyle', en: 'Food and lifestyle' },
+    title: {
+      es: 'Perfiles de restaurantes con criterio editorial',
+      en: 'Restaurant features with editorial judgment'
+    },
+    problem: {
+      es: 'Presentar restaurantes y experiencias sin que el contenido se sintiera como una lista fria.',
+      en: 'Present restaurants and experiences without making the content feel like a flat list.'
+    },
+    role: {
+      es: 'Selección de ángulos, jerarquía de información y visuales consistentes.',
+      en: 'Angle selection, information hierarchy, and consistent visuals.'
+    },
+    outcome: {
+      es: 'Piezas que ayudan a decidir rápido: qué es, por qué importa y qué esperar.',
+      en: 'Pieces that help people decide quickly: what it is, why it matters, and what to expect.'
+    },
+    image: `${portfolioBaseUrl}/il-bracco/1.png`
+  },
+  {
+    eyebrow: { es: 'Contenido bilingüe', en: 'Bilingual content' },
+    title: {
+      es: 'Conciertos Medellín en español e inglés',
+      en: 'Medellin concerts in Spanish and English'
+    },
+    problem: {
+      es: 'Organizar información de fechas, artistas y ciudad para audiencias distintas.',
+      en: 'Organize dates, artists, and city context for different audiences.'
+    },
+    role: {
+      es: 'Versiones ES/EN, síntesis, orden narrativo y adaptación de carrusel.',
+      en: 'ES/EN versions, synthesis, narrative order, and carousel adaptation.'
+    },
+    outcome: {
+      es: 'Un mismo paquete editorial adaptado para lectores locales e internacionales.',
+      en: 'One editorial package adapted for local and international readers.'
+    },
+    image: `${portfolioBaseUrl}/conciertos-medellin/es-1.png`
+  }
+];
+
+const processSteps = [
+  {
+    title: { es: 'Investigo el contexto', en: 'I research the context' },
+    body: {
+      es: 'Reúno fuentes, fechas, referencias y restricciones antes de escribir.',
+      en: 'I gather sources, dates, references, and constraints before writing.'
+    }
+  },
+  {
+    title: { es: 'Ordeno la historia', en: 'I structure the story' },
+    body: {
+      es: 'Decido qué va primero, qué sobra y qué necesita una explicación más clara.',
+      en: 'I decide what leads, what can go, and what needs clearer explanation.'
+    }
+  },
+  {
+    title: { es: 'Empaco para publicar', en: 'I package for publishing' },
+    body: {
+      es: 'Convierto el material en captions, carruseles, videos o sistemas de contenido.',
+      en: 'I turn the material into captions, carousels, videos, or content systems.'
+    }
+  }
+];
+
+const toolkitTools = [
+  { name: 'Canva', icon: `${import.meta.env.BASE_URL}tool-logos/canva.svg` },
+  { name: 'DaVinci Resolve', icon: `${import.meta.env.BASE_URL}tool-logos/davinciresolve.svg` },
+  { name: 'Codex', icon: `${import.meta.env.BASE_URL}tool-logos/openai.svg` },
+  { name: 'Notion', icon: `${import.meta.env.BASE_URL}tool-logos/notion.svg` },
+  { name: 'GitHub', icon: `${import.meta.env.BASE_URL}tool-logos/github.svg` },
+  { name: 'Perplexity', icon: `${import.meta.env.BASE_URL}tool-logos/perplexity.svg` },
+  { name: 'CapCut', icon: `${import.meta.env.BASE_URL}tool-logos/capcut.svg` },
+  { name: 'Discord', icon: `${import.meta.env.BASE_URL}tool-logos/discord.svg` }
 ];
 
 const youtubeVideos = [
@@ -202,7 +227,7 @@ const experienceItems = [
     company: { es: 'Noble Union', en: 'Noble Union' },
     period: { es: 'Enero - Julio 2025', en: 'January - July 2025' },
     description: {
-      es: 'Gestion de informacion interna y apoyo en cultura organizacional.',
+      es: 'Gestión de información interna y apoyo en cultura organizacional.',
       en: 'Internal information management and support for organizational culture.'
     }
   },
@@ -211,7 +236,7 @@ const experienceItems = [
     company: { es: 'Extension Cultural UdeA', en: 'UdeA Cultural Extension' },
     period: { es: 'Mayo 2023 - Enero 2024', en: 'May 2023 - January 2024' },
     description: {
-      es: 'Logistica, investigacion y apoyo a comunicaciones institucionales.',
+      es: 'Logística, investigación y apoyo a comunicaciones institucionales.',
       en: 'Logistics, research, and institutional communications support.'
     }
   },
@@ -220,16 +245,16 @@ const experienceItems = [
     company: { es: 'Xtendo Group', en: 'Xtendo Group' },
     period: { es: 'Abril 2021 - Febrero 2023', en: 'April 2021 - February 2023' },
     description: {
-      es: 'Supervision, resolucion de casos, mejora operativa y acompanamiento de agentes para Chile y Peru.',
+      es: 'Supervisión, resolución de casos, mejora operativa y acompañamiento de agentes para Chile y Perú.',
       en: 'Supervision, case resolution, operational improvement, and agent support for Chile and Peru.'
     }
   },
   {
-    role: { es: 'Gestora pedagogica', en: 'Pedagogical Facilitator' },
-    company: { es: 'Secretaria de Movilidad de Medellin', en: 'Medellin Mobility Secretariat' },
+    role: { es: 'Gestora pedagógica', en: 'Pedagogical Facilitator' },
+    company: { es: 'Secretaría de Movilidad de Medellín', en: 'Medellin Mobility Secretariat' },
     period: { es: 'Julio - Diciembre 2019', en: 'July - December 2019' },
     description: {
-      es: 'Comunicacion publica, pedagogia y trabajo en territorio.',
+      es: 'Comunicación pública, pedagogía y trabajo en territorio.',
       en: 'Public communication, pedagogy, and field work.'
     }
   }
@@ -237,46 +262,52 @@ const experienceItems = [
 ---
 
 <BaseLayout
-  title="Catalina Brand Gomez - Digital Content Strategist and Operations Specialist"
+  title="Catalina Brand Gómez - Digital Content Strategist and Operations Specialist"
   description="Research-driven digital content strategist and operations specialist. Portfolio, content systems, editing, and AI-assisted workflows."
 >
+  <header class="site-header" aria-label="Main navigation">
+    <nav class="anchor-nav">
+      {navLinks.map((link) => (
+        <a href={link.href}>
+          <span class="i18n es">{link.label.es}</span>
+          <span class="i18n en">{link.label.en}</span>
+        </a>
+      ))}
+    </nav>
+    <div class="control-row">
+      <div class="lang-switch" role="group" aria-label="Selector de idioma">
+        <button class="lang-btn" type="button" data-lang-set="es" aria-pressed="false">ES</button>
+        <button class="lang-btn" type="button" data-lang-set="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span aria-hidden="true">◐</span>
+        <span data-theme-label>Modo día</span>
+      </button>
+    </div>
+  </header>
+
   <section class="masthead hero-shell">
     <div class="identity">
-      <div class="control-row">
-        <div class="lang-switch" role="group" aria-label="Selector de idioma">
-          <button class="lang-btn" type="button" data-lang-set="es" aria-pressed="false">ES</button>
-          <button class="lang-btn" type="button" data-lang-set="en" aria-pressed="false">EN</button>
-        </div>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
-          <span aria-hidden="true">◐</span>
-          <span data-theme-label>Modo noche</span>
-        </button>
-      </div>
-
       <p class="eyebrow">
-        <span class="i18n es">Perfil profesional</span>
-        <span class="i18n en">Professional profile</span>
+        <span class="i18n es">Contenido digital, investigación y operaciones creativas</span>
+        <span class="i18n en">Content strategy, research and creative operations</span>
       </p>
-      <h1>Catalina Brand Gomez</h1>
+      <h1>Catalina Brand Gómez</h1>
       <p class="headline">
-        <span class="i18n es">Digital Content Strategist and Operations Specialist</span>
-        <span class="i18n en">Digital Content Strategist and Operations Specialist</span>
+        <span class="i18n es">Transformo ideas, información y referencias en contenido claro, visual y listo para publicar.</span>
+        <span class="i18n en">I turn scattered information into clear, visual, ready-to-publish content.</span>
       </p>
       <p class="hero-summary">
         <span class="i18n es">
-          Profesional en comunicacion con enfoque en investigacion, contenido digital, operaciones creativas y workflows asistidos con IA.
+          Soy comunicadora estratega especializada en contenido digital. Trabajo en investigación, estructura, copy, carruseles, edición de video y sistemas de publicación para marcas, creators y proyectos editoriales.
         </span>
         <span class="i18n en">
-          Communication professional focused on research, digital content, creative operations, and AI-assisted workflows.
+          I am a strategic communicator specialized in digital content. I work across research, structure, copy, carousels, video editing, and publishing systems for brands, creators, and editorial projects.
         </span>
       </p>
       <p class="location">
-        <span class="i18n es">Disponible para trabajo remoto · Colaboraciones internacionales</span>
-        <span class="i18n en">Available for remote work · Open to international collaborations</span>
-      </p>
-      <p class="hero-note">
-        <span class="i18n es">Research-driven content, digital operations y produccion creativa para newsletters, marcas y creators.</span>
-        <span class="i18n en">Research-driven content, digital operations, and creative production for newsletters, brands, and creators.</span>
+        <span class="i18n es">Vivo en Colombia. Disponible para trabajo remoto e internacional.</span>
+        <span class="i18n en">Based in Colombia. Available for remote and international work.</span>
       </p>
 
       <div class="social-row">
@@ -311,81 +342,47 @@ const experienceItems = [
       </div>
 
       <div class="actions">
-        <a class="cta primary" href="#services">
-          <span class="i18n es">Ver servicios</span>
-          <span class="i18n en">View services</span>
+        <a class="cta primary" href="#work">
+          <span class="i18n es">Ver trabajo seleccionado</span>
+          <span class="i18n en">View selected work</span>
         </a>
         <a class="cta" href={cvUrl}>
           <span class="i18n es">Descargar CV</span>
           <span class="i18n en">Download CV</span>
         </a>
+        <a class="cta quiet" href={upworkUrl} target="_blank" rel="noreferrer">Upwork</a>
       </div>
     </div>
 
     <div class="hero-aside">
       <div class="photo-wrap">
-        <img src={profileImageUrl} alt="Foto de perfil de Catalina Brand Gomez" class="profile-photo" />
+        <img src={profileImageUrl} alt="Foto de perfil de Catalina Brand Gómez" class="profile-photo" />
+      </div>
+      <div class="proof-rail" aria-label="Portfolio summary">
+        {proofStats.map((stat) => (
+          <div>
+            <strong>{stat.value}</strong>
+            <span>
+              <span class="i18n es">{stat.label.es}</span>
+              <span class="i18n en">{stat.label.en}</span>
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="stream-section intro-grid">
-    <div>
-      <h2>
-        <span class="i18n es">Lo que hago</span>
-        <span class="i18n en">What I do</span>
-      </h2>
-      <p>
-        <span class="i18n es">
-          Ayudo a newsletters, small brands y creators a convertir informacion dispersa en contenido estructurado, workflows mas claros y entregables listos para publicar.
-        </span>
-        <span class="i18n en">
-          I help newsletters, small brands, and creators turn scattered information into structured content, clearer workflows, and ready-to-publish deliverables.
-        </span>
-      </p>
-    </div>
-    <div class="pillars-grid">
-      {valuePillars.map((pillar) => (
-        <article class="pillar-card">
-          <h3>
-            <span class="i18n es">{pillar.title.es}</span>
-            <span class="i18n en">{pillar.title.en}</span>
-          </h3>
-          <p>
-            <span class="i18n es">{pillar.body.es}</span>
-            <span class="i18n en">{pillar.body.en}</span>
-          </p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section id="strengths" class="stream-section">
-    <h2>
-      <span class="i18n es">Fortalezas clave</span>
-      <span class="i18n en">Core strengths</span>
-    </h2>
-    <div class="strength-list">
-      {strengths.map((strength) => (
-        <article class="strength-item">
-          <h3>
-            <span class="i18n es">{strength.label.es}</span>
-            <span class="i18n en">{strength.label.en}</span>
-          </h3>
-          <p>
-            <span class="i18n es">{strength.detail.es}</span>
-            <span class="i18n en">{strength.detail.en}</span>
-          </p>
-        </article>
-      ))}
-    </div>
-  </section>
-
   <section id="services" class="stream-section">
-    <h2>
-      <span class="i18n es">Servicios</span>
-      <span class="i18n en">Services</span>
-    </h2>
+    <div class="section-kicker">
+      <p class="eyebrow">
+        <span class="i18n es">Servicios</span>
+        <span class="i18n en">Services</span>
+      </p>
+      <h2>
+        <span class="i18n es">Apoyo de contenido para equipos que necesitan claridad y ejecución.</span>
+        <span class="i18n en">Content support for teams that need clarity and execution.</span>
+      </h2>
+    </div>
     <div class="service-grid">
       {services.map((service) => (
         <article class="service-card">
@@ -402,95 +399,156 @@ const experienceItems = [
     </div>
   </section>
 
-  <section id="proof" class="stream-section">
-    <h2>
-      <span class="i18n es">Trabajo seleccionado</span>
-      <span class="i18n en">Selected work</span>
-    </h2>
-    <div class="stream-list">
-      {projectHighlights.map((project) => (
-        <article>
-          <p class="item-meta">
-            <span class="i18n es">{project.type.es}</span>
-            <span class="i18n en">{project.type.en}</span>
-          </p>
-          <h3>
-            <span class="i18n es">{project.title.es}</span>
-            <span class="i18n en">{project.title.en}</span>
-          </h3>
-          <p>
-            <span class="i18n es">{project.body.es}</span>
-            <span class="i18n en">{project.body.en}</span>
-          </p>
-          {project.url && (
-            <a class="mini-link" href={project.url} target="_blank" rel="noreferrer">
-              <span class="i18n es">Ver proyecto</span>
-              <span class="i18n en">View project</span>
-            </a>
-          )}
+  <section id="work" class="stream-section work-section">
+    <div class="section-kicker">
+      <p class="eyebrow">
+        <span class="i18n es">Trabajo seleccionado</span>
+        <span class="i18n en">Selected work</span>
+      </p>
+      <h2>
+        <span class="i18n es">Casos que muestran cómo pienso, no solo cómo se ven las piezas.</span>
+        <span class="i18n en">Case studies that show how I think, not only how the pieces look.</span>
+      </h2>
+    </div>
+
+    <div class="case-stack">
+      {featuredCaseStudies.map((project) => (
+        <article class="case-card">
+          <div class="case-copy">
+            <p class="item-meta">
+              <span class="i18n es">{project.eyebrow.es}</span>
+              <span class="i18n en">{project.eyebrow.en}</span>
+            </p>
+            <h3>
+              <span class="i18n es">{project.title.es}</span>
+              <span class="i18n en">{project.title.en}</span>
+            </h3>
+            <dl class="case-points">
+              <div>
+                <dt>
+                  <span class="i18n es">Problema</span>
+                  <span class="i18n en">Problem</span>
+                </dt>
+                <dd>
+                  <span class="i18n es">{project.problem.es}</span>
+                  <span class="i18n en">{project.problem.en}</span>
+                </dd>
+              </div>
+              <div>
+                <dt>
+                  <span class="i18n es">Mi rol</span>
+                  <span class="i18n en">My role</span>
+                </dt>
+                <dd>
+                  <span class="i18n es">{project.role.es}</span>
+                  <span class="i18n en">{project.role.en}</span>
+                </dd>
+              </div>
+              <div>
+                <dt>
+                  <span class="i18n es">Resultado</span>
+                  <span class="i18n en">Outcome</span>
+                </dt>
+                <dd>
+                  <span class="i18n es">{project.outcome.es}</span>
+                  <span class="i18n en">{project.outcome.en}</span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+          <div class="case-media">
+            <img src={project.image} alt={project.title.en} loading="lazy" width="1080" height="1080" />
+          </div>
         </article>
       ))}
     </div>
+
+    <details class="archive-panel">
+      <summary>
+        <span class="i18n es">Ver mas muestras de carruseles</span>
+        <span class="i18n en">View more carousel samples</span>
+      </summary>
+      <div class="canva-grid">
+        {archiveCampaigns.map((campaign) => (
+          <article class="canva-campaign" data-carousel tabindex="0">
+            <div class="canva-head">
+              <h3>
+                <span class="i18n es">{campaign.title.es}</span>
+                <span class="i18n en">{campaign.title.en}</span>
+              </h3>
+              <p class="canva-counter">
+                <span data-carousel-current>1</span> / {campaign.slides.length}
+              </p>
+            </div>
+            <div class="canva-frame">
+              {campaign.slides.map((slide, slideIndex) => (
+                <img
+                  src={slide.src}
+                  alt={`Campaign ${campaign.title.en} slide ${slide.index}`}
+                  class:list={['canva-slide', slideIndex === 0 && 'is-active']}
+                  loading="lazy"
+                  width="1080"
+                  height="1080"
+                  data-carousel-slide
+                  aria-hidden={slideIndex === 0 ? 'false' : 'true'}
+                />
+              ))}
+              <button type="button" class="canva-arrow prev" data-carousel-prev aria-label={`Previous slide for ${campaign.title.en}`}>
+                ‹
+              </button>
+              <button type="button" class="canva-arrow next" data-carousel-next aria-label={`Next slide for ${campaign.title.en}`}>
+                ›
+              </button>
+            </div>
+          </article>
+        ))}
+      </div>
+    </details>
   </section>
 
-  <section id="portfolio" class="stream-section">
-    <h2>
-      <span class="i18n es">Content portfolio</span>
-      <span class="i18n en">Content portfolio</span>
-    </h2>
-    <p>
-      <span class="i18n es">Ejemplos de carruseles investigados, estructurados y producidos para newsletters y marcas.</span>
-      <span class="i18n en">Examples of carousels researched, structured, and produced for newsletters and brands.</span>
-    </p>
-    <div class="canva-grid">
-      {canvaCampaigns.map((campaign) => (
-        <article class="canva-campaign" data-carousel tabindex="0">
-          <div class="canva-head">
-            <h3>
-              <span class="i18n es">{campaign.title.es}</span>
-              <span class="i18n en">{campaign.title.en}</span>
-            </h3>
-            <p class="canva-counter">
-              <span data-carousel-current>1</span> / {campaign.slides.length}
-            </p>
-          </div>
-          <div class="canva-frame">
-            {campaign.slides.map((slide, slideIndex) => (
-              <img
-                src={slide.src}
-                alt={`Campaign ${campaign.title.en} slide ${slide.index}`}
-                class:list={['canva-slide', slideIndex === 0 && 'is-active']}
-                loading="lazy"
-                width="1080"
-                height="1080"
-                data-carousel-slide
-                aria-hidden={slideIndex === 0 ? 'false' : 'true'}
-              />
-            ))}
-            <button type="button" class="canva-arrow prev" data-carousel-prev aria-label={`Previous slide for ${campaign.title.en}`}>
-              ‹
-            </button>
-            <button type="button" class="canva-arrow next" data-carousel-next aria-label={`Next slide for ${campaign.title.en}`}>
-              ›
-            </button>
-          </div>
+  <section id="process" class="stream-section process-section">
+    <div class="section-kicker">
+      <p class="eyebrow">
+        <span class="i18n es">Proceso</span>
+        <span class="i18n en">Process</span>
+      </p>
+      <h2>
+        <span class="i18n es">Mi trabajo empieza antes del diseño final.</span>
+        <span class="i18n en">My work starts before the final design.</span>
+      </h2>
+    </div>
+    <div class="process-grid">
+      {processSteps.map((step, index) => (
+        <article class="process-step">
+          <span class="process-number">{String(index + 1).padStart(2, '0')}</span>
+          <h3>
+            <span class="i18n es">{step.title.es}</span>
+            <span class="i18n en">{step.title.en}</span>
+          </h3>
+          <p>
+            <span class="i18n es">{step.body.es}</span>
+            <span class="i18n en">{step.body.en}</span>
+          </p>
         </article>
       ))}
     </div>
   </section>
 
   <section id="youtube" class="stream-section">
-    <h2>YouTube</h2>
-    <p>
-      <span class="i18n es">Edicion en DaVinci Resolve, thumbnails y soporte de empaque para canales de tecnologia.</span>
-      <span class="i18n en">DaVinci Resolve editing, thumbnails, and packaging support for technology channels.</span>
-    </p>
+    <div class="section-kicker inline-kicker">
+      <p class="eyebrow">YouTube</p>
+      <h2>
+        <span class="i18n es">Edición, thumbnails y soporte para canales de tecnología.</span>
+        <span class="i18n en">Editing, thumbnails, and packaging support for technology channels.</span>
+      </h2>
+    </div>
     <div class="video-grid">
       {youtubeVideos.map((video) => (
         <a class="video-card" href={video.url} target="_blank" rel="noreferrer">
           <img
             src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
-            alt={video.title.en}
+            alt=""
+            aria-hidden="true"
             loading="lazy"
             width="480"
             height="360"
@@ -504,18 +562,78 @@ const experienceItems = [
     </div>
   </section>
 
-  <section id="social-content" class="stream-section">
-    <h2>Instagram</h2>
-    <p>
-      <span class="i18n es">Trabajo de contenido, copy y apoyo creativo para Box Club.</span>
-      <span class="i18n en">Content, copy, and creative support work for Box Club.</span>
-    </p>
-    <a class="mini-link" href={instagramProfileUrl} target="_blank" rel="noreferrer">
-      <span class="i18n es">Ver perfil en Instagram</span>
-      <span class="i18n en">View Instagram profile</span>
-    </a>
+  <section id="experience" class="stream-section">
+    <div class="two-column">
+      <div>
+        <div class="section-kicker">
+          <p class="eyebrow">
+            <span class="i18n es">Experiencia</span>
+            <span class="i18n en">Experience</span>
+          </p>
+          <h2>
+            <span class="i18n es">Comunicación, contenido, operaciones y soporte creativo.</span>
+            <span class="i18n en">Communication, content, operations, and creative support.</span>
+          </h2>
+        </div>
+        <div class="stream-list">
+          {experienceItems.map((item) => (
+            <article class="experience-item">
+              <div>
+                <h3>
+                  <span class="i18n es">{item.role.es}</span>
+                  <span class="i18n en">{item.role.en}</span>
+                </h3>
+                <p class="item-company">
+                  <span class="i18n es">{item.company.es}</span>
+                  <span class="i18n en">{item.company.en}</span>
+                </p>
+                <p>
+                  <span class="i18n es">{item.description.es}</span>
+                  <span class="i18n en">{item.description.en}</span>
+                </p>
+              </div>
+              <p class="item-meta">
+                <span class="i18n es">{item.period.es}</span>
+                <span class="i18n en">{item.period.en}</span>
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <aside class="toolkit-panel">
+        <p class="eyebrow">Toolkit</p>
+        <p>
+          <span class="i18n es">Herramientas que uso para investigar, organizar, diseñar, editar y producir más rápido.</span>
+          <span class="i18n en">Tools I use to research, organize, and produce faster.</span>
+        </p>
+        <div class="tool-logo-row" aria-label="Herramientas">
+          {toolkitTools.map((tool) => (
+            <span class="tool-logo" title={tool.name} aria-label={tool.name}>
+              <img src={tool.icon} alt="" aria-hidden="true" loading="lazy" width="32" height="32" />
+              <span class="tool-label">{tool.name}</span>
+            </span>
+          ))}
+        </div>
+        <a class="mini-link" href={githubUrl} target="_blank" rel="noreferrer">GitHub</a>
+      </aside>
+    </div>
+  </section>
+
+  <section id="social-content" class="stream-section social-strip">
+    <div>
+      <p class="eyebrow">Instagram</p>
+      <h2>
+        <span class="i18n es">Trabajo activo para Box Club.</span>
+        <span class="i18n en">Active work for Box Club.</span>
+      </h2>
+      <a class="mini-link" href={instagramProfileUrl} target="_blank" rel="noreferrer">
+        <span class="i18n es">Ver perfil</span>
+        <span class="i18n en">View profile</span>
+      </a>
+    </div>
     <div class="instagram-grid">
-      {instagramPosts.map((post) => (
+      {instagramPosts.slice(0, 3).map((post) => (
         <a class="instagram-card" href={post.postUrl} target="_blank" rel="noreferrer">
           <img
             src={`${import.meta.env.BASE_URL}${post.image}`}
@@ -524,78 +642,35 @@ const experienceItems = [
             width="320"
             height="320"
           />
-          <p class="instagram-copy">{post.caption || 'Instagram content support and copywriting.'}</p>
         </a>
       ))}
     </div>
   </section>
 
-  <section id="toolkit" class="stream-section">
-    <h2>
-      <span class="i18n es">Toolkit</span>
-      <span class="i18n en">Toolkit</span>
-    </h2>
-    <p>
-      <span class="i18n es">Herramientas que uso para investigar, organizar y producir mas rapido.</span>
-      <span class="i18n en">Tools I use to research, organize, and produce faster.</span>
-    </p>
-    <div class="tool-logo-row" aria-label="Herramientas">
-      {aiTools.map((tool) => (
-        <span class="tool-logo" title={tool.label} aria-label={tool.label}>
-          <img src={tool.icon} alt={tool.name} loading="lazy" width="24" height="24" />
-          <span class="tool-label">{tool.label}</span>
-        </span>
-      ))}
-    </div>
-  </section>
-
-  <section id="experience" class="stream-section">
-    <h2>
-      <span class="i18n es">Experiencia</span>
-      <span class="i18n en">Experience</span>
-    </h2>
-    <div class="stream-list">
-      {experienceItems.map((item) => (
-        <article class="experience-item">
-          <div>
-            <h3>
-              <span class="i18n es">{item.role.es}</span>
-              <span class="i18n en">{item.role.en}</span>
-            </h3>
-            <p class="item-company">
-              <span class="i18n es">{item.company.es}</span>
-              <span class="i18n en">{item.company.en}</span>
-            </p>
-            <p>
-              <span class="i18n es">{item.description.es}</span>
-              <span class="i18n en">{item.description.en}</span>
-            </p>
-          </div>
-          <p class="item-meta">
-            <span class="i18n es">{item.period.es}</span>
-            <span class="i18n en">{item.period.en}</span>
-          </p>
-        </article>
-      ))}
-    </div>
-  </section>
-
   <section id="contact" class="stream-section contact-band">
+    <p class="eyebrow">
+      <span class="i18n es">Contacto</span>
+      <span class="i18n en">Contact</span>
+    </p>
     <h2>
-      <span class="i18n es">Trabajemos juntas</span>
-      <span class="i18n en">Let's work together</span>
+      <span class="i18n es">Trabajemos en contenido que se pueda publicar sin caos.</span>
+      <span class="i18n en">Let's make content that can ship without chaos.</span>
     </h2>
     <p>
       <span class="i18n es">
-        Disponible para proyectos de content research, digital operations, social packaging y soporte de produccion para creators y small brands.
+        Disponible para investigación de contenido, operaciones digitales, social packaging y soporte de producción. También puedo enviar un portfolio más detallado si el proyecto lo necesita.
       </span>
       <span class="i18n en">
-        Available for content research, digital operations, social packaging, and production support projects for creators and small brands.
+        Available for content research, digital operations, social packaging, and production support. I can also send a deeper portfolio kit when a project needs more context.
       </span>
     </p>
     <div class="actions">
       <a class="cta primary" href="mailto:catabg1410@gmail.com">catabg1410@gmail.com</a>
       <a class="cta" href={linkedInUrl} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a class="cta quiet" href={cvUrl}>
+        <span class="i18n es">CV</span>
+        <span class="i18n en">CV</span>
+      </a>
     </div>
   </section>
 

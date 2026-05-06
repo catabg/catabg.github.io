@@ -2,8 +2,8 @@
 import '../styles/global.css';
 
 const {
-  title = 'Catalina Brand Gomez - Digital Content Strategist and Operations Specialist',
-  description = 'Personal portfolio of Catalina Brand Gomez.'
+  title = 'Catalina Brand Gómez - Digital Content Strategist and Operations Specialist',
+  description = 'Personal portfolio of Catalina Brand Gómez.'
 } = Astro.props;
 ---
 <!doctype html>
@@ -23,8 +23,7 @@ const {
       (() => {
         try {
           const savedTheme = localStorage.getItem('theme');
-          const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-          const initialTheme = savedTheme || (prefersLight ? 'light' : 'dark');
+          const initialTheme = savedTheme || 'light';
           document.documentElement.setAttribute('data-theme', initialTheme);
 
           const savedLang = localStorage.getItem('lang');
@@ -33,7 +32,7 @@ const {
           document.documentElement.setAttribute('data-lang', initialLang);
           document.documentElement.lang = initialLang;
         } catch {
-          document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.setAttribute('data-theme', 'light');
           document.documentElement.setAttribute('data-lang', 'es');
           document.documentElement.lang = 'es';
         }
