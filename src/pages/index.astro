@@ -362,10 +362,8 @@ const experienceItems = [
         {proofStats.map((stat) => (
           <div>
             <strong>{stat.value}</strong>
-            <span>
-              <span class="i18n es">{stat.label.es}</span>
-              <span class="i18n en">{stat.label.en}</span>
-            </span>
+            <span class="stat-label i18n es">{stat.label.es}</span>
+            <span class="stat-label i18n en">{stat.label.en}</span>
           </div>
         ))}
       </div>

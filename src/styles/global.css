@@ -380,14 +380,22 @@ main {
   font-size: 1.05rem;
 }
 
-.proof-rail span {
-  display: block;
+.proof-rail .stat-label {
   margin-top: 5px;
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 0.64rem;
   line-height: 1.35;
   text-transform: uppercase;
+}
+
+.proof-rail .stat-label.i18n {
+  display: none;
+}
+
+[data-lang="es"] .proof-rail .stat-label.i18n.es,
+[data-lang="en"] .proof-rail .stat-label.i18n.en {
+  display: block;
 }
 
 .stream-section {
