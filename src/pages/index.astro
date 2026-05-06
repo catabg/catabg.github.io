@@ -84,10 +84,11 @@ const proofStats = [
 
 const featuredCaseStudies = [
   {
+    campaignSlug: 'dia-de-muertos-scottsdale',
     eyebrow: { es: 'Contenido local', en: 'Local content' },
     title: {
-      es: 'Carruseles de eventos y cultura para Scottsdale',
-      en: 'Event and culture carousels for Scottsdale'
+      es: 'Carruseles de eventos y cultura para Scottsdale Scoop',
+      en: 'Event and culture carousels for Scottsdale Scoop'
     },
     problem: {
       es: 'Convertir información dispersa de restaurantes, fechas y eventos en piezas fáciles de leer.',
@@ -100,17 +101,17 @@ const featuredCaseStudies = [
     outcome: {
       es: 'Paquetes listos para publicar con contexto claro y ritmo editorial.',
       en: 'Ready-to-publish packages with clear context and editorial pacing.'
-    },
-    image: `${portfolioBaseUrl}/dia-de-muertos-scottsdale/1.png`
+    }
   },
   {
+    campaignSlug: 'il-bracco',
     eyebrow: { es: 'Food and lifestyle', en: 'Food and lifestyle' },
     title: {
       es: 'Perfiles de restaurantes con criterio editorial',
       en: 'Restaurant features with editorial judgment'
     },
     problem: {
-      es: 'Presentar restaurantes y experiencias sin que el contenido se sintiera como una lista fria.',
+      es: 'Presentar restaurantes y experiencias sin que el contenido se sintiera como una lista fría.',
       en: 'Present restaurants and experiences without making the content feel like a flat list.'
     },
     role: {
@@ -120,14 +121,14 @@ const featuredCaseStudies = [
     outcome: {
       es: 'Piezas que ayudan a decidir rápido: qué es, por qué importa y qué esperar.',
       en: 'Pieces that help people decide quickly: what it is, why it matters, and what to expect.'
-    },
-    image: `${portfolioBaseUrl}/il-bracco/1.png`
+    }
   },
   {
+    campaignSlug: 'conciertos-medellin',
     eyebrow: { es: 'Contenido bilingüe', en: 'Bilingual content' },
     title: {
-      es: 'Conciertos Medellín en español e inglés',
-      en: 'Medellin concerts in Spanish and English'
+      es: 'Carrusel informativo de eventos bilingüe',
+      en: 'Bilingual informational event carousel'
     },
     problem: {
       es: 'Organizar información de fechas, artistas y ciudad para audiencias distintas.',
@@ -140,10 +141,16 @@ const featuredCaseStudies = [
     outcome: {
       es: 'Un mismo paquete editorial adaptado para lectores locales e internacionales.',
       en: 'One editorial package adapted for local and international readers.'
-    },
-    image: `${portfolioBaseUrl}/conciertos-medellin/es-1.png`
+    }
   }
-];
+].map((project) => {
+  const campaign = canvaCampaigns.find((item) => item.slug === project.campaignSlug);
+
+  return {
+    ...project,
+    slides: campaign?.slides ?? []
+  };
+});
 
 const processSteps = [
   {
@@ -454,8 +461,30 @@ const experienceItems = [
               </div>
             </dl>
           </div>
-          <div class="case-media">
-            <img src={project.image} alt={project.title.en} loading="lazy" width="1080" height="1080" />
+          <div class="case-media" data-carousel tabindex="0" aria-label={`Carousel for ${project.title.en}`}>
+            <div class="case-carousel-frame" data-carousel-frame>
+              {project.slides.map((slide, slideIndex) => (
+                <img
+                  src={slide.src}
+                  alt={`${project.title.en} slide ${slide.index}`}
+                  class:list={['case-slide', slideIndex === 0 && 'is-active']}
+                  loading="lazy"
+                  width="1080"
+                  height="1080"
+                  data-carousel-slide
+                  aria-hidden={slideIndex === 0 ? 'false' : 'true'}
+                />
+              ))}
+              <button type="button" class="canva-arrow case-arrow prev" data-carousel-prev aria-label={`Previous slide for ${project.title.en}`}>
+                ‹
+              </button>
+              <button type="button" class="canva-arrow case-arrow next" data-carousel-next aria-label={`Next slide for ${project.title.en}`}>
+                ›
+              </button>
+              <p class="case-counter">
+                <span data-carousel-current>1</span> / {project.slides.length}
+              </p>
+            </div>
           </div>
         </article>
       ))}
@@ -463,7 +492,7 @@ const experienceItems = [
 
     <details class="archive-panel">
       <summary>
-        <span class="i18n es">Ver mas muestras de carruseles</span>
+        <span class="i18n es">Ver más muestras de carruseles</span>
         <span class="i18n en">View more carousel samples</span>
       </summary>
       <div class="canva-grid">
@@ -681,8 +710,10 @@ const experienceItems = [
         const prevBtn = carousel.querySelector('[data-carousel-prev]');
         const nextBtn = carousel.querySelector('[data-carousel-next]');
         const currentNode = carousel.querySelector('[data-carousel-current]');
+        const dragSurface = carousel.querySelector('[data-carousel-frame]') ?? carousel;
         const totalSlides = slides.length;
         let current = 0;
+        let pointerStartX = null;
 
         const render = () => {
           slides.forEach((slide, index) => {
@@ -702,24 +733,57 @@ const experienceItems = [
           return;
         }
 
-        prevBtn?.addEventListener('click', () => {
+        const goToPrev = () => {
           current = (current - 1 + totalSlides) % totalSlides;
           render();
-        });
+        };
 
-        nextBtn?.addEventListener('click', () => {
+        const goToNext = () => {
           current = (current + 1) % totalSlides;
           render();
-        });
+        };
+
+        prevBtn?.addEventListener('click', goToPrev);
+        nextBtn?.addEventListener('click', goToNext);
 
         carousel.addEventListener('keydown', (event) => {
           if (event.key === 'ArrowLeft') {
             event.preventDefault();
-            prevBtn?.click();
+            goToPrev();
           } else if (event.key === 'ArrowRight') {
             event.preventDefault();
-            nextBtn?.click();
+            goToNext();
           }
+        });
+
+        dragSurface.addEventListener('pointerdown', (event) => {
+          if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+          pointerStartX = event.clientX;
+          dragSurface.setPointerCapture?.(event.pointerId);
+          dragSurface.classList.add('is-dragging');
+        });
+
+        dragSurface.addEventListener('pointerup', (event) => {
+          if (pointerStartX === null) return;
+
+          const distance = event.clientX - pointerStartX;
+          pointerStartX = null;
+          dragSurface.releasePointerCapture?.(event.pointerId);
+          dragSurface.classList.remove('is-dragging');
+
+          if (Math.abs(distance) < 42) return;
+
+          if (distance > 0) {
+            goToPrev();
+          } else {
+            goToNext();
+          }
+        });
+
+        dragSurface.addEventListener('pointercancel', () => {
+          pointerStartX = null;
+          dragSurface.classList.remove('is-dragging');
         });
 
         render();
