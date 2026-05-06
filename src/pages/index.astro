@@ -507,7 +507,7 @@ const experienceItems = [
                 <span data-carousel-current>1</span> / {campaign.slides.length}
               </p>
             </div>
-            <div class="canva-frame">
+            <div class="canva-frame" data-carousel-frame>
               {campaign.slides.map((slide, slideIndex) => (
                 <img
                   src={slide.src}
@@ -758,6 +758,7 @@ const experienceItems = [
 
         dragSurface.addEventListener('pointerdown', (event) => {
           if (event.pointerType === 'mouse' && event.button !== 0) return;
+          if (event.target.closest('[data-carousel-prev], [data-carousel-next]')) return;
 
           pointerStartX = event.clientX;
           dragSurface.setPointerCapture?.(event.pointerId);
