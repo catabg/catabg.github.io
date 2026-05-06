@@ -509,7 +509,10 @@ main {
 }
 
 .case-media {
-  min-height: 360px;
+  width: min(100%, 360px);
+  aspect-ratio: 4 / 5;
+  justify-self: center;
+  align-self: center;
   border-radius: 8px;
   overflow: hidden;
   background: var(--line-soft);
@@ -519,7 +522,6 @@ main {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: inherit;
   touch-action: pan-y;
   cursor: grab;
 }
@@ -532,7 +534,7 @@ main {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .case-slide {
@@ -614,7 +616,7 @@ main {
 
 .canva-frame {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   border: 1px solid var(--surface-border);
   border-radius: 8px;
   overflow: hidden;
@@ -626,7 +628,7 @@ main {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 0;
   transition: opacity 180ms ease;
 }
@@ -810,11 +812,17 @@ main {
   gap: 10px;
 }
 
+.instagram-card {
+  aspect-ratio: 4 / 5;
+}
+
 .instagram-card img {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
+  aspect-ratio: 4 / 5;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--line-soft);
 }
 
 .mini-link {
