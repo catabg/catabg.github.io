@@ -203,10 +203,10 @@ main {
 
 .identity h1 {
   margin: 16px 0 0;
-  max-width: 11ch;
-  font-size: 7.2rem;
-  line-height: 0.9;
-  letter-spacing: 0;
+  max-width: 13ch;
+  font-size: clamp(3.8rem, 6.5vw, 5.65rem);
+  line-height: 0.94;
+  letter-spacing: -0.045em;
 }
 
 .headline {
@@ -429,7 +429,7 @@ main {
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -457,7 +457,7 @@ main {
 
 .case-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.46fr);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.62fr);
   gap: clamp(18px, 3vw, 38px);
   align-items: stretch;
   padding: clamp(18px, 4vw, 34px);
@@ -485,6 +485,35 @@ main {
   margin: 24px 0 0;
   display: grid;
   gap: 14px;
+}
+
+.engagement-stat {
+  width: fit-content;
+  margin-top: 22px;
+  padding: 10px 13px;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.engagement-stat strong {
+  color: var(--title-accent);
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.engagement-stat span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.metric-source {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
 }
 
 .case-points div {
@@ -516,6 +545,36 @@ main {
   border-radius: 8px;
   overflow: hidden;
   background: var(--line-soft);
+}
+
+.case-media.embedded-post {
+  width: min(100%, 410px);
+  height: auto;
+  aspect-ratio: auto;
+  overflow: visible;
+  background: transparent;
+}
+
+.instagram-embed {
+  width: 100%;
+  height: 590px;
+  display: block;
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.post-link {
+  margin-top: 10px;
+  display: inline-flex;
+  color: var(--title-accent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-decoration: none;
+}
+
+.post-link:hover {
+  text-decoration: underline;
 }
 
 .case-carousel-frame {
@@ -685,7 +744,7 @@ main {
 .video-grid {
   margin-top: 24px;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -712,6 +771,15 @@ main {
   padding: 10px 11px 12px;
   font-size: 0.78rem;
   line-height: 1.35;
+}
+
+.video-card .video-metrics {
+  margin: 0;
+  padding: 0 11px 13px;
+  color: var(--title-accent);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1.4;
 }
 
 .video-card:hover,
@@ -969,7 +1037,7 @@ summary:focus-visible,
   }
 
   .identity h1 {
-    font-size: 5.8rem;
+    font-size: 4.8rem;
   }
 
   .headline {
@@ -1056,8 +1124,12 @@ summary:focus-visible,
     min-height: 300px;
   }
 
+  .instagram-embed {
+    height: 540px;
+  }
+
   .identity h1 {
-    font-size: 3.65rem;
+    font-size: 3.25rem;
   }
 
   .headline {

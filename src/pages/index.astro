@@ -1,14 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import instagramFeed from '../data/instagram-feed.json';
 
 const cvUrl = `${import.meta.env.BASE_URL}cv.pdf`;
 const linkedInUrl = 'https://www.linkedin.com/in/catalina-brand-g%C3%B3mez-549922209/';
 const upworkUrl = 'https://www.upwork.com/freelancers/~010e5a923c0079adb5?mp_source=share';
 const githubUrl = 'https://github.com/catabg';
 const profileImageUrl = `${import.meta.env.BASE_URL}profile.jpg`;
-const instagramProfileUrl = 'https://www.instagram.com/box_club_col/';
-const instagramPosts = instagramFeed.slice(0, 6);
 
 const socialLinks = [
   { id: 'linkedin', label: 'LinkedIn', url: linkedInUrl },
@@ -17,6 +14,13 @@ const socialLinks = [
 ];
 
 const services = [
+  {
+    title: { es: 'Agentes de código y skills de contenido', en: 'Coding agents and content skills' },
+    body: {
+      es: 'Creo skills a la medida para automatizar tareas repetibles de investigación y producción según las necesidades de cada marca.',
+      en: 'I create tailored skills to automate repeatable research and production tasks according to each brand need.'
+    }
+  },
   {
     title: { es: 'Investigación y empaque de contenido', en: 'Content research and packaging' },
     body: {
@@ -65,8 +69,7 @@ const canvaCampaigns = [
   }))
 }));
 
-const featuredCampaignSlugs = ['dia-de-muertos-scottsdale', 'il-bracco', 'conciertos-medellin'];
-const archiveCampaigns = canvaCampaigns.filter((campaign) => !featuredCampaignSlugs.includes(campaign.slug));
+const archiveCampaigns = canvaCampaigns;
 
 const navLinks = [
   { href: '#work', label: { es: 'Trabajo', en: 'Work' } },
@@ -84,73 +87,75 @@ const proofStats = [
 
 const featuredCaseStudies = [
   {
-    campaignSlug: 'dia-de-muertos-scottsdale',
-    eyebrow: { es: 'Contenido local', en: 'Local content' },
+    brand: 'Scottsdale Scoop',
+    postUrl: 'https://www.instagram.com/p/DXPHQ77lEzQ/?img_index=1',
+    embedUrl: 'https://www.instagram.com/p/DXPHQ77lEzQ/embed/',
+    engagement: '1.810',
+    eyebrow: { es: 'Contenido local · Scottsdale, Arizona', en: 'Local content · Scottsdale, Arizona' },
     title: {
-      es: 'Carruseles de eventos y cultura para Scottsdale Scoop',
-      en: 'Event and culture carousels for Scottsdale Scoop'
+      es: 'Scottsdale Scoop',
+      en: 'Scottsdale Scoop'
     },
     problem: {
-      es: 'Convertir información dispersa de restaurantes, fechas y eventos en piezas fáciles de leer.',
-      en: 'Turn scattered restaurant, date, and event information into easy-to-read social pieces.'
+      es: 'Carruseles editoriales sobre planes, restaurantes y eventos locales que ayudan a descubrir la ciudad.',
+      en: 'Editorial carousels about local plans, restaurants, and events that help readers discover the city.'
     },
     role: {
-      es: 'Research, estructura, copy corto y empaque visual en Canva.',
-      en: 'Research, structure, short copy, and visual packaging in Canva.'
+      es: 'Investigo temas, estructuro la historia y creo copy y diseño listos para publicar.',
+      en: 'I research topics, structure the story, and create publish-ready copy and design.'
     },
     outcome: {
-      es: 'Paquetes listos para publicar con contexto claro y ritmo editorial.',
-      en: 'Ready-to-publish packages with clear context and editorial pacing.'
+      es: 'Un carrusel claro y accionable que obtuvo conversación real alrededor de recomendaciones locales.',
+      en: 'A clear, actionable carousel that generated real conversation around local recommendations.'
     }
   },
   {
-    campaignSlug: 'il-bracco',
-    eyebrow: { es: 'Food and lifestyle', en: 'Food and lifestyle' },
+    brand: 'Medellín Insider',
+    postUrl: 'https://www.instagram.com/p/DMNlHatNYnE/?img_index=1',
+    embedUrl: 'https://www.instagram.com/p/DMNlHatNYnE/embed/',
+    engagement: '255',
+    eyebrow: { es: 'Eventos y cultura · Medellín', en: 'Events and culture · Medellin' },
     title: {
-      es: 'Perfiles de restaurantes con criterio editorial',
-      en: 'Restaurant features with editorial judgment'
+      es: 'Medellín Insider',
+      en: 'Medellin Insider'
     },
     problem: {
-      es: 'Presentar restaurantes y experiencias sin que el contenido se sintiera como una lista fría.',
-      en: 'Present restaurants and experiences without making the content feel like a flat list.'
+      es: 'Información de eventos, cultura y ciudad convertida en una guía visual rápida para audiencias locales.',
+      en: 'Events, culture, and city information turned into a quick visual guide for local audiences.'
     },
     role: {
-      es: 'Selección de ángulos, jerarquía de información y visuales consistentes.',
-      en: 'Angle selection, information hierarchy, and consistent visuals.'
+      es: 'Selección de temas, síntesis, narrativa de carrusel y adaptación de información para redes.',
+      en: 'Topic selection, synthesis, carousel narrative, and social-first information adaptation.'
     },
     outcome: {
-      es: 'Piezas que ayudan a decidir rápido: qué es, por qué importa y qué esperar.',
-      en: 'Pieces that help people decide quickly: what it is, why it matters, and what to expect.'
+      es: 'Una publicación útil para encontrar planes en la ciudad y conectar con eventos culturales.',
+      en: 'A useful post for discovering plans in the city and connecting with cultural events.'
     }
   },
   {
-    campaignSlug: 'conciertos-medellin',
-    eyebrow: { es: 'Contenido bilingüe', en: 'Bilingual content' },
+    brand: 'Box Club',
+    postUrl: 'https://www.instagram.com/p/DVwHLBFjYVf/?img_index=1',
+    embedUrl: 'https://www.instagram.com/p/DVwHLBFjYVf/embed/',
+    engagement: '3.675',
+    eyebrow: { es: 'E-commerce · CrossFit', en: 'E-commerce · CrossFit' },
     title: {
-      es: 'Carrusel informativo de eventos bilingüe',
-      en: 'Bilingual informational event carousel'
+      es: 'Box Club',
+      en: 'Box Club'
     },
     problem: {
-      es: 'Organizar información de fechas, artistas y ciudad para audiencias distintas.',
-      en: 'Organize dates, artists, and city context for different audiences.'
+      es: 'Contenido de producto que responde dudas reales y guía compras de artículos para entrenamiento.',
+      en: 'Product content that answers real questions and supports training gear purchase decisions.'
     },
     role: {
-      es: 'Versiones ES/EN, síntesis, orden narrativo y adaptación de carrusel.',
-      en: 'ES/EN versions, synthesis, narrative order, and carousel adaptation.'
+      es: 'Investigación de producto, ángulo comercial, copy y carruseles educativos para Instagram.',
+      en: 'Product research, commercial angle, copy, and educational Instagram carousels.'
     },
     outcome: {
-      es: 'Un mismo paquete editorial adaptado para lectores locales e internacionales.',
-      en: 'One editorial package adapted for local and international readers.'
+      es: 'El carrusel impulsó preguntas de compra y conversación específica sobre calzado de entrenamiento.',
+      en: 'The carousel prompted purchase questions and focused conversation about training shoes.'
     }
   }
-].map((project) => {
-  const campaign = canvaCampaigns.find((item) => item.slug === project.campaignSlug);
-
-  return {
-    ...project,
-    slides: campaign?.slides ?? []
-  };
-});
+];
 
 const processSteps = [
   {
@@ -170,52 +175,54 @@ const processSteps = [
   {
     title: { es: 'Empaco para publicar', en: 'I package for publishing' },
     body: {
-      es: 'Convierto el material en captions, carruseles, videos o sistemas de contenido.',
-      en: 'I turn the material into captions, carousels, videos, or content systems.'
+      es: 'Convierto el material en carruseles, captions, videos o sistemas de contenido listos para el equipo.',
+      en: 'I turn the material into carousels, captions, videos, or content systems ready for the team.'
     }
   }
 ];
 
 const toolkitTools = [
-  { name: 'Canva', icon: `${import.meta.env.BASE_URL}tool-logos/canva.svg` },
+  { name: 'Canva', icon: `${import.meta.env.BASE_URL}tool-logos/canva.ico` },
+  { name: 'Figma', icon: `${import.meta.env.BASE_URL}tool-logos/figma.svg` },
   { name: 'DaVinci Resolve', icon: `${import.meta.env.BASE_URL}tool-logos/davinciresolve.svg` },
-  { name: 'Codex', icon: `${import.meta.env.BASE_URL}tool-logos/openai.svg` },
+  { name: 'CapCut', icon: `${import.meta.env.BASE_URL}tool-logos/capcut.ico` },
+  { name: 'ChatGPT', icon: `${import.meta.env.BASE_URL}tool-logos/openai.svg` },
+  { name: 'Codex', icon: `${import.meta.env.BASE_URL}tool-logos/codex.png` },
+  { name: 'Google Workspace', icon: `${import.meta.env.BASE_URL}tool-logos/google-workspace.png` },
+  { name: 'Microsoft 365', icon: `${import.meta.env.BASE_URL}tool-logos/microsoft-365.ico` },
   { name: 'Notion', icon: `${import.meta.env.BASE_URL}tool-logos/notion.svg` },
   { name: 'GitHub', icon: `${import.meta.env.BASE_URL}tool-logos/github.svg` },
   { name: 'Perplexity', icon: `${import.meta.env.BASE_URL}tool-logos/perplexity.svg` },
-  { name: 'CapCut', icon: `${import.meta.env.BASE_URL}tool-logos/capcut.svg` },
   { name: 'Discord', icon: `${import.meta.env.BASE_URL}tool-logos/discord.svg` }
 ];
 
 const youtubeVideos = [
   {
+    id: 'j7d5rs0iMlE',
+    url: 'https://www.youtube.com/watch?v=j7d5rs0iMlE&t=3252s',
+    title: { es: 'OpenAI Codex Full Course 4 Hours: Build & Ship', en: 'OpenAI Codex Full Course 4 Hours: Build & Ship' },
+    views: '31K views',
+    likes: '1K likes'
+  },
+  {
+    id: '_oKPa8_7w3Y',
+    url: 'https://www.youtube.com/watch?v=_oKPa8_7w3Y&t=6s',
+    title: {
+      es: 'OpenAI Just Killed Claude Code',
+      en: 'OpenAI Just Killed Claude Code'
+    },
+    views: '39K views',
+    likes: '1.2K likes'
+  },
+  {
     id: 'o5aoaCHlARo',
-    url: 'https://youtu.be/o5aoaCHlARo',
-    title: { es: "Don't learn n8n in 2026 - do THIS instead", en: "Don't learn n8n in 2026 - do THIS instead" }
-  },
-  {
-    id: 'IQ1_5jPiQoE',
-    url: 'https://youtu.be/IQ1_5jPiQoE?si=5EOj_sDxUbUZU3Nr',
+    url: 'https://www.youtube.com/watch?v=o5aoaCHlARo&t=25s',
     title: {
-      es: "This Claude Code Plugin Transforms Vibe Coders Into Senior Engineers",
-      en: "This Claude Code Plugin Transforms Vibe Coders Into Senior Engineers"
-    }
-  },
-  {
-    id: 'XjLUtu3ieOU',
-    url: 'https://youtu.be/XjLUtu3ieOU?si=9rDXJwPY5n1uIMBl',
-    title: {
-      es: 'Make your First $1000 with Claude Code (Complete Guide)',
-      en: 'Make your First $1000 with Claude Code (Complete Guide)'
-    }
-  },
-  {
-    id: 'sns-ks-bUJM',
-    url: 'https://youtu.be/sns-ks-bUJM?si=q1TMivVpcBKPvDQi',
-    title: {
-      es: "Claude Code's 1M Context Changes Everything",
-      en: "Claude Code's 1M Context Changes Everything"
-    }
+      es: "Don't learn n8n in 2026 - do THIS instead",
+      en: "Don't learn n8n in 2026 - do THIS instead"
+    },
+    views: '79K views',
+    likes: '2.3K likes'
   }
 ];
 
@@ -313,8 +320,8 @@ const experienceItems = [
         </span>
       </p>
       <p class="location">
-        <span class="i18n es">Vivo en Colombia. Disponible para trabajo remoto e internacional.</span>
-        <span class="i18n en">Based in Colombia. Available for remote and international work.</span>
+        <span class="i18n es">Disponible para trabajo remoto e internacional.</span>
+        <span class="i18n en">Available for remote and international work.</span>
       </p>
 
       <div class="social-row">
@@ -411,8 +418,8 @@ const experienceItems = [
         <span class="i18n en">Selected work</span>
       </p>
       <h2>
-        <span class="i18n es">Casos que muestran cómo pienso, no solo cómo se ven las piezas.</span>
-        <span class="i18n en">Case studies that show how I think, not only how the pieces look.</span>
+        <span class="i18n es">Contenido editorial y comercial construido con research, criterio y una ejecución clara.</span>
+        <span class="i18n en">Editorial and commercial content built with research, judgment, and clear execution.</span>
       </h2>
     </div>
 
@@ -428,11 +435,18 @@ const experienceItems = [
               <span class="i18n es">{project.title.es}</span>
               <span class="i18n en">{project.title.en}</span>
             </h3>
+            <div class="engagement-stat" aria-label={`${project.engagement} Instagram likes`}>
+              <strong>{project.engagement}</strong>
+              <span>
+                <span class="i18n es">Me gusta en la publicación</span>
+                <span class="i18n en">Likes on the post</span>
+              </span>
+            </div>
             <dl class="case-points">
               <div>
                 <dt>
-                  <span class="i18n es">Problema</span>
-                  <span class="i18n en">Problem</span>
+                  <span class="i18n es">Contenido</span>
+                  <span class="i18n en">Content</span>
                 </dt>
                 <dd>
                   <span class="i18n es">{project.problem.es}</span>
@@ -441,8 +455,8 @@ const experienceItems = [
               </div>
               <div>
                 <dt>
-                  <span class="i18n es">Mi rol</span>
-                  <span class="i18n en">My role</span>
+                  <span class="i18n es">Mi trabajo</span>
+                  <span class="i18n en">My work</span>
                 </dt>
                 <dd>
                   <span class="i18n es">{project.role.es}</span>
@@ -451,8 +465,8 @@ const experienceItems = [
               </div>
               <div>
                 <dt>
-                  <span class="i18n es">Resultado</span>
-                  <span class="i18n en">Outcome</span>
+                  <span class="i18n es">Sistema</span>
+                  <span class="i18n en">System</span>
                 </dt>
                 <dd>
                   <span class="i18n es">{project.outcome.es}</span>
@@ -460,31 +474,23 @@ const experienceItems = [
                 </dd>
               </div>
             </dl>
+            <p class="metric-source">
+              <span class="i18n es">Engagement visible en Instagram al 25 de mayo de 2026.</span>
+              <span class="i18n en">Visible Instagram engagement as of May 25, 2026.</span>
+            </p>
           </div>
-          <div class="case-media" data-carousel tabindex="0" aria-label={`Carousel for ${project.title.en}`}>
-            <div class="case-carousel-frame" data-carousel-frame>
-              {project.slides.map((slide, slideIndex) => (
-                <img
-                  src={slide.src}
-                  alt={`${project.title.en} slide ${slide.index}`}
-                  class:list={['case-slide', slideIndex === 0 && 'is-active']}
-                  loading="lazy"
-                  width="1080"
-                  height="1080"
-                  data-carousel-slide
-                  aria-hidden={slideIndex === 0 ? 'false' : 'true'}
-                />
-              ))}
-              <button type="button" class="canva-arrow case-arrow prev" data-carousel-prev aria-label={`Previous slide for ${project.title.en}`}>
-                ‹
-              </button>
-              <button type="button" class="canva-arrow case-arrow next" data-carousel-next aria-label={`Next slide for ${project.title.en}`}>
-                ›
-              </button>
-              <p class="case-counter">
-                <span data-carousel-current>1</span> / {project.slides.length}
-              </p>
-            </div>
+          <div class="case-media embedded-post">
+            <iframe
+              class="instagram-embed"
+              src={project.embedUrl}
+              title={`Instagram carousel by ${project.brand}`}
+              loading="lazy"
+              allowtransparency="true"
+            ></iframe>
+            <a class="post-link" href={project.postUrl} target="_blank" rel="noreferrer">
+              <span class="i18n es">Abrir carrusel en Instagram</span>
+              <span class="i18n en">Open carousel on Instagram</span>
+            </a>
           </div>
         </article>
       ))}
@@ -565,8 +571,8 @@ const experienceItems = [
     <div class="section-kicker inline-kicker">
       <p class="eyebrow">YouTube</p>
       <h2>
-        <span class="i18n es">Edición, thumbnails y soporte para canales de tecnología.</span>
-        <span class="i18n en">Editing, thumbnails, and packaging support for technology channels.</span>
+        <span class="i18n es">Edición, thumbnails y soporte de contenido para YouTube.</span>
+        <span class="i18n en">Editing, thumbnails, and content support for YouTube.</span>
       </h2>
     </div>
     <div class="video-grid">
@@ -584,6 +590,7 @@ const experienceItems = [
             <span class="i18n es">{video.title.es}</span>
             <span class="i18n en">{video.title.en}</span>
           </h3>
+          <p class="video-metrics">{video.views} · {video.likes}</p>
         </a>
       ))}
     </div>
@@ -631,8 +638,8 @@ const experienceItems = [
       <aside class="toolkit-panel">
         <p class="eyebrow">Toolkit</p>
         <p>
-          <span class="i18n es">Herramientas que uso para investigar, organizar, diseñar, editar y producir más rápido.</span>
-          <span class="i18n en">Tools I use to research, organize, and produce faster.</span>
+          <span class="i18n es">Herramientas que uso para investigar, organizar, diseñar y editar. Para workflows con agentes de código uso Codex y puedo adaptarme a otras plataformas según el proyecto.</span>
+          <span class="i18n en">Tools I use to research, organize, design, and edit. For coding-agent workflows I use Codex and can adapt to other platforms according to the project.</span>
         </p>
         <div class="tool-logo-row" aria-label="Herramientas">
           {toolkitTools.map((tool) => (
@@ -644,33 +651,6 @@ const experienceItems = [
         </div>
         <a class="mini-link" href={githubUrl} target="_blank" rel="noreferrer">GitHub</a>
       </aside>
-    </div>
-  </section>
-
-  <section id="social-content" class="stream-section social-strip">
-    <div>
-      <p class="eyebrow">Instagram</p>
-      <h2>
-        <span class="i18n es">Trabajo activo para Box Club.</span>
-        <span class="i18n en">Active work for Box Club.</span>
-      </h2>
-      <a class="mini-link" href={instagramProfileUrl} target="_blank" rel="noreferrer">
-        <span class="i18n es">Ver perfil</span>
-        <span class="i18n en">View profile</span>
-      </a>
-    </div>
-    <div class="instagram-grid">
-      {instagramPosts.slice(0, 3).map((post) => (
-        <a class="instagram-card" href={post.postUrl} target="_blank" rel="noreferrer">
-          <img
-            src={`${import.meta.env.BASE_URL}${post.image}`}
-            alt={`Instagram post ${post.shortcode}`}
-            loading="lazy"
-            width="320"
-            height="320"
-          />
-        </a>
-      ))}
     </div>
   </section>
 
