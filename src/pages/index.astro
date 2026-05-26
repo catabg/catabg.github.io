@@ -89,8 +89,7 @@ const featuredCaseStudies = [
   {
     brand: 'Scottsdale Scoop',
     postUrl: 'https://www.instagram.com/p/DXPHQ77lEzQ/?img_index=1',
-    previewImage: `${import.meta.env.BASE_URL}portfolio/instagram/DXPHQ77lEzQ.jpg`,
-    engagement: '1.810',
+    embedUrl: 'https://www.instagram.com/p/DXPHQ77lEzQ/embed/captioned/',
     eyebrow: { es: 'Contenido local · Scottsdale, Arizona', en: 'Local content · Scottsdale, Arizona' },
     title: {
       es: 'Scottsdale Scoop',
@@ -112,8 +111,7 @@ const featuredCaseStudies = [
   {
     brand: 'Medellín Insider',
     postUrl: 'https://www.instagram.com/p/DMNlHatNYnE/?img_index=1',
-    previewImage: `${import.meta.env.BASE_URL}portfolio/instagram/DMNlHatNYnE.jpg`,
-    engagement: '255',
+    embedUrl: 'https://www.instagram.com/p/DMNlHatNYnE/embed/captioned/',
     eyebrow: { es: 'Eventos y cultura · Medellín', en: 'Events and culture · Medellin' },
     title: {
       es: 'Medellín Insider',
@@ -135,8 +133,7 @@ const featuredCaseStudies = [
   {
     brand: 'Box Club',
     postUrl: 'https://www.instagram.com/p/DVwHLBFjYVf/?img_index=1',
-    previewImage: `${import.meta.env.BASE_URL}portfolio/instagram/DVwHLBFjYVf.jpg`,
-    engagement: '3.675',
+    embedUrl: 'https://www.instagram.com/p/DVwHLBFjYVf/embed/captioned/',
     eyebrow: { es: 'E-commerce · CrossFit', en: 'E-commerce · CrossFit' },
     title: {
       es: 'Box Club',
@@ -435,13 +432,6 @@ const experienceItems = [
               <span class="i18n es">{project.title.es}</span>
               <span class="i18n en">{project.title.en}</span>
             </h3>
-            <div class="engagement-stat" aria-label={`${project.engagement} Instagram likes`}>
-              <strong>{project.engagement}</strong>
-              <span>
-                <span class="i18n es">Me gusta en la publicación</span>
-                <span class="i18n en">Likes on the post</span>
-              </span>
-            </div>
             <dl class="case-points">
               <div>
                 <dt>
@@ -474,21 +464,15 @@ const experienceItems = [
                 </dd>
               </div>
             </dl>
-            <p class="metric-source">
-              <span class="i18n es">Engagement visible en Instagram al 25 de mayo de 2026.</span>
-              <span class="i18n en">Visible Instagram engagement as of May 25, 2026.</span>
-            </p>
           </div>
-          <div class="case-media featured-post">
-            <a href={project.postUrl} target="_blank" rel="noreferrer" aria-label={`Open ${project.brand} carousel on Instagram`}>
-              <img
-                src={project.previewImage}
-                alt={`Cover of the ${project.brand} Instagram carousel`}
-                loading="lazy"
-                width="1080"
-                height="1350"
-              />
-            </a>
+          <div class="case-media embedded-post">
+            <iframe
+              class="instagram-embed"
+              src={project.embedUrl}
+              title={`Instagram carousel by ${project.brand}`}
+              loading="lazy"
+              allowtransparency="true"
+            ></iframe>
             <a class="post-link" href={project.postUrl} target="_blank" rel="noreferrer">
               <span class="i18n es">Abrir carrusel en Instagram</span>
               <span class="i18n en">Open carousel on Instagram</span>
