@@ -470,7 +470,8 @@ main {
 .case-copy {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 4px;
 }
 
 .case-copy h3 {
@@ -528,7 +529,7 @@ main {
 
 .instagram-embed {
   width: 100%;
-  height: 690px;
+  height: 610px;
   display: block;
   border: 1px solid var(--surface-border);
   border-radius: 8px;
@@ -1119,7 +1120,7 @@ summary:focus-visible,
   }
 
   .instagram-embed {
-    height: 650px;
+    height: 590px;
   }
 
   .identity h1 {
