@@ -36,10 +36,10 @@ const services = [
     }
   },
   {
-    title: { es: 'Edición de video y soporte para canales', en: 'Video editing and channel support' },
+    title: { es: 'Edición de video y diseño para YouTube', en: 'Video editing and design for YouTube' },
     body: {
-      es: 'Edito videos en DaVinci Resolve, preparo thumbnails y apoyo el paquete de contenido para YouTube.',
-      en: 'I edit in DaVinci Resolve, prepare thumbnails, and support the full YouTube content package.'
+      es: 'Edito videos en DaVinci Resolve, diseño thumbnails y creo hooks y títulos para YouTube.',
+      en: 'I edit videos in DaVinci Resolve, design thumbnails, and create hooks and titles for YouTube.'
     }
   }
 ];
@@ -75,7 +75,7 @@ const navLinks = [
   { href: '#work', label: { es: 'Trabajo', en: 'Work' } },
   { href: '#services', label: { es: 'Servicios', en: 'Services' } },
   { href: '#process', label: { es: 'Proceso', en: 'Process' } },
-  { href: '#experience', label: { es: 'Experiencia', en: 'Experience' } },
+  { href: '#experience', label: { es: 'Hoja de vida', en: 'Resume' } },
   { href: '#contact', label: { es: 'Contacto', en: 'Contact' } }
 ];
 
@@ -89,7 +89,7 @@ const featuredCaseStudies = [
   {
     brand: 'Scottsdale Scoop',
     postUrl: 'https://www.instagram.com/p/DXPHQ77lEzQ/?img_index=1',
-    embedUrl: 'https://www.instagram.com/p/DXPHQ77lEzQ/embed/',
+    previewImage: `${import.meta.env.BASE_URL}portfolio/instagram/DXPHQ77lEzQ.jpg`,
     engagement: '1.810',
     eyebrow: { es: 'Contenido local · Scottsdale, Arizona', en: 'Local content · Scottsdale, Arizona' },
     title: {
@@ -112,7 +112,7 @@ const featuredCaseStudies = [
   {
     brand: 'Medellín Insider',
     postUrl: 'https://www.instagram.com/p/DMNlHatNYnE/?img_index=1',
-    embedUrl: 'https://www.instagram.com/p/DMNlHatNYnE/embed/',
+    previewImage: `${import.meta.env.BASE_URL}portfolio/instagram/DMNlHatNYnE.jpg`,
     engagement: '255',
     eyebrow: { es: 'Eventos y cultura · Medellín', en: 'Events and culture · Medellin' },
     title: {
@@ -135,7 +135,7 @@ const featuredCaseStudies = [
   {
     brand: 'Box Club',
     postUrl: 'https://www.instagram.com/p/DVwHLBFjYVf/?img_index=1',
-    embedUrl: 'https://www.instagram.com/p/DVwHLBFjYVf/embed/',
+    previewImage: `${import.meta.env.BASE_URL}portfolio/instagram/DVwHLBFjYVf.jpg`,
     engagement: '3.675',
     eyebrow: { es: 'E-commerce · CrossFit', en: 'E-commerce · CrossFit' },
     title: {
@@ -479,14 +479,16 @@ const experienceItems = [
               <span class="i18n en">Visible Instagram engagement as of May 25, 2026.</span>
             </p>
           </div>
-          <div class="case-media embedded-post">
-            <iframe
-              class="instagram-embed"
-              src={project.embedUrl}
-              title={`Instagram carousel by ${project.brand}`}
-              loading="lazy"
-              allowtransparency="true"
-            ></iframe>
+          <div class="case-media featured-post">
+            <a href={project.postUrl} target="_blank" rel="noreferrer" aria-label={`Open ${project.brand} carousel on Instagram`}>
+              <img
+                src={project.previewImage}
+                alt={`Cover of the ${project.brand} Instagram carousel`}
+                loading="lazy"
+                width="1080"
+                height="1350"
+              />
+            </a>
             <a class="post-link" href={project.postUrl} target="_blank" rel="noreferrer">
               <span class="i18n es">Abrir carrusel en Instagram</span>
               <span class="i18n en">Open carousel on Instagram</span>
@@ -571,9 +573,13 @@ const experienceItems = [
     <div class="section-kicker inline-kicker">
       <p class="eyebrow">YouTube</p>
       <h2>
-        <span class="i18n es">Edición, thumbnails y soporte de contenido para YouTube.</span>
-        <span class="i18n en">Editing, thumbnails, and content support for YouTube.</span>
+        <span class="i18n es">Edición de video y diseño de thumbnails para YouTube.</span>
+        <span class="i18n en">Video editing and thumbnail design for YouTube.</span>
       </h2>
+      <p>
+        <span class="i18n es">Edito videos en DaVinci Resolve y diseño los thumbnails que presentan cada tema en YouTube. También creo hooks y títulos para que la idea y la promesa de cada video queden claras antes del clic.</span>
+        <span class="i18n en">I edit videos in DaVinci Resolve and design the thumbnails that introduce each topic on YouTube. I also create hooks and titles so the idea and promise of each video are clear before a viewer clicks.</span>
+      </p>
     </div>
     <div class="video-grid">
       {youtubeVideos.map((video) => (
@@ -601,12 +607,12 @@ const experienceItems = [
       <div>
         <div class="section-kicker">
           <p class="eyebrow">
-            <span class="i18n es">Experiencia</span>
-            <span class="i18n en">Experience</span>
+            <span class="i18n es">Hoja de vida</span>
+            <span class="i18n en">Resume</span>
           </p>
           <h2>
-            <span class="i18n es">Comunicación, contenido, operaciones y soporte creativo.</span>
-            <span class="i18n en">Communication, content, operations, and creative support.</span>
+            <span class="i18n es">Comunicación, contenido y operaciones digitales.</span>
+            <span class="i18n en">Communications, content, and digital operations.</span>
           </h2>
         </div>
         <div class="stream-list">
@@ -632,6 +638,22 @@ const experienceItems = [
               </p>
             </article>
           ))}
+          <article class="experience-item education-card">
+            <div>
+              <p class="eyebrow">
+                <span class="i18n es">Educación</span>
+                <span class="i18n en">Education</span>
+              </p>
+              <h3>
+                <span class="i18n es">Comunicaciones</span>
+                <span class="i18n en">Degree in Communications</span>
+              </h3>
+              <p class="item-company">
+                <span class="i18n es">Universidad de Antioquia, Colombia</span>
+                <span class="i18n en">University of Antioquia, Colombia</span>
+              </p>
+            </div>
+          </article>
         </div>
       </div>
 

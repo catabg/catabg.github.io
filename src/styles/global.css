@@ -547,7 +547,7 @@ main {
   background: var(--line-soft);
 }
 
-.case-media.embedded-post {
+.case-media.featured-post {
   width: min(100%, 410px);
   height: auto;
   aspect-ratio: auto;
@@ -555,10 +555,15 @@ main {
   background: transparent;
 }
 
-.instagram-embed {
-  width: 100%;
-  height: 590px;
+.featured-post > a:first-child {
   display: block;
+}
+
+.featured-post img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
   border: 1px solid var(--surface-border);
   border-radius: 8px;
   background: var(--surface);
@@ -825,6 +830,29 @@ main {
   margin-top: 6px;
   color: var(--ink);
   font-size: 0.95rem;
+}
+
+.stream-list article.education-card {
+  margin-top: 14px;
+  padding: 20px;
+  grid-template-columns: 1fr;
+  border: 1px solid color-mix(in srgb, var(--title-accent) 42%, var(--surface-border));
+  border-left: 4px solid var(--title-accent);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--title-accent) 7%, var(--surface));
+}
+
+.education-card .eyebrow {
+  margin: 0 0 12px;
+}
+
+.education-card h3 {
+  font-size: 1.24rem;
+}
+
+.education-card .item-company {
+  margin-top: 8px;
+  font-weight: 600;
 }
 
 .toolkit-panel {
@@ -1122,10 +1150,6 @@ summary:focus-visible,
 
   .case-media {
     min-height: 300px;
-  }
-
-  .instagram-embed {
-    height: 540px;
   }
 
   .identity h1 {
