@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const cvUrl = `${import.meta.env.BASE_URL}cv.pdf`;
+const portfolioUrl = `${import.meta.env.BASE_URL}portfolio/`;
 const linkedInUrl = 'https://www.linkedin.com/in/catalina-brand-g%C3%B3mez-549922209/';
 const upworkUrl = 'https://www.upwork.com/freelancers/~010e5a923c0079adb5?mp_source=share';
 const githubUrl = 'https://github.com/catabg';
@@ -72,6 +73,7 @@ const canvaCampaigns = [
 const archiveCampaigns = canvaCampaigns;
 
 const navLinks = [
+  { href: portfolioUrl, label: { es: 'Portfolio', en: 'Portfolio' } },
   { href: '#work', label: { es: 'Trabajo', en: 'Work' } },
   { href: '#services', label: { es: 'Servicios', en: 'Services' } },
   { href: '#process', label: { es: 'Proceso', en: 'Process' } },
@@ -353,7 +355,11 @@ const experienceItems = [
       </div>
 
       <div class="actions">
-        <a class="cta primary" href="#work">
+        <a class="cta primary" href={portfolioUrl}>
+          <span class="i18n es">Ver portfolio completo</span>
+          <span class="i18n en">View full portfolio</span>
+        </a>
+        <a class="cta" href="#work">
           <span class="i18n es">Ver trabajo seleccionado</span>
           <span class="i18n en">View selected work</span>
         </a>

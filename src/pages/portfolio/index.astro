@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import portfolioProjects from '../../data/adobe-portfolio.json';
+
+const baseUrl = import.meta.env.BASE_URL;
+const homeUrl = baseUrl;
+const pdfUrl = `${baseUrl}portfolio/Catalina_Brand_Portfolio_2026.pdf`;
+
+const projectDetails = {
+  'youtube-content': {
+    category: { es: 'Video editing / YouTube', en: 'Video editing / YouTube' },
+    summary: {
+      es: 'Edición long-form, thumbnails, títulos y hooks para mejorar el empaque del contenido.',
+      en: 'Long-form editing, thumbnails, titles, and hooks to improve content packaging.'
+    }
+  },
+  'box-club-content': {
+    category: { es: 'E-commerce / Social media', en: 'E-commerce / Social media' },
+    summary: {
+      es: 'Contenido de producto y carruseles educativos para una tienda enfocada en CrossFit.',
+      en: 'Product content and educational carousels for a CrossFit-focused store.'
+    }
+  },
+  'medellin-insider-content': {
+    category: { es: 'Eventos y ciudad / Medellín', en: 'Events and city guides / Medellin' },
+    summary: {
+      es: 'Contenido bilingüe sobre eventos, noticias y planes para audiencias locales y turistas.',
+      en: 'Bilingual content about events, news, and plans for locals and visitors.'
+    }
+  },
+  'scottsdale-scoop': {
+    category: { es: 'Contenido editorial local / Scottsdale', en: 'Local editorial content / Scottsdale' },
+    summary: {
+      es: 'Carruseles sobre restaurantes, eventos y recomendaciones locales.',
+      en: 'Carousels about restaurants, events, and local recommendations.'
+    }
+  },
+  'proyecto-de-marca-de-salon-de-manicura-vana-studio': {
+    category: { es: 'Branding / Beauty', en: 'Branding / Beauty' },
+    summary: {
+      es: 'Media kit e identidad visual para una marca de nail studio.',
+      en: 'Media kit and visual identity for a nail studio brand.'
+    }
+  },
+  'contenido-para-redes-sociales-reels-y-fotografias': {
+    category: { es: 'Social media / VANA Studio', en: 'Social media / VANA Studio' },
+    summary: {
+      es: 'Contenido para redes, reels y fotografía para VANA Studio.',
+      en: 'Social media content, reels, and photography for VANA Studio.'
+    }
+  },
+  'disenos-e-cards-invitaciones': {
+    category: { es: 'Diseño digital / Invitaciones', en: 'Digital design / Invitations' },
+    summary: {
+      es: 'Invitaciones digitales para distintas celebraciones y estilos.',
+      en: 'Digital invitations for different celebrations and visual styles.'
+    }
+  },
+  'florence-italy': {
+    category: { es: 'Fotografía / Florencia', en: 'Photography / Florence' },
+    summary: {
+      es: 'Selección fotográfica realizada en Florencia, Italia.',
+      en: 'Photography selection captured in Florence, Italy.'
+    }
+  }
+};
+
+const projects = portfolioProjects.map((project) => ({
+  ...project,
+  ...projectDetails[project.slug],
+  url: `${baseUrl}portfolio/${project.slug}/`,
+  cover: `${baseUrl}${project.images[0].src}`
+}));
+---
+
+<BaseLayout
+  title="Portfolio - Catalina Brand Gómez"
+  description="Digital content, social media, branding, YouTube, and photography portfolio by Catalina Brand Gómez."
+>
+  <header class="site-header portfolio-site-header" aria-label="Portfolio navigation">
+    <a class="portfolio-home-link" href={homeUrl}>
+      <span aria-hidden="true">←</span>
+      <span class="i18n es">Volver al sitio</span>
+      <span class="i18n en">Back to site</span>
+    </a>
+    <nav class="anchor-nav">
+      <a href="#projects">
+        <span class="i18n es">Proyectos</span>
+        <span class="i18n en">Projects</span>
+      </a>
+      <a href="#contact">
+        <span class="i18n es">Contacto</span>
+        <span class="i18n en">Contact</span>
+      </a>
+    </nav>
+    <div class="control-row">
+      <div class="lang-switch" role="group" aria-label="Selector de idioma">
+        <button class="lang-btn" type="button" data-lang-set="es" aria-pressed="false">ES</button>
+        <button class="lang-btn" type="button" data-lang-set="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span aria-hidden="true">◐</span>
+        <span data-theme-label>Modo día</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="portfolio-hero">
+    <div>
+      <p class="eyebrow">
+        <span class="i18n es">Portfolio / selección completa</span>
+        <span class="i18n en">Portfolio / complete selection</span>
+      </p>
+      <h1>
+        <span class="i18n es">Contenido, diseño y proyectos visuales.</span>
+        <span class="i18n en">Content, design, and visual projects.</span>
+      </h1>
+      <p class="portfolio-intro">
+        <span class="i18n es">Esta galería reúne el trabajo que construí en Adobe Portfolio: social media, branding, YouTube, e-cards y fotografía.</span>
+        <span class="i18n en">This gallery includes the work I built in Adobe Portfolio: social media, branding, YouTube, e-cards, and photography.</span>
+      </p>
+      <div class="actions">
+        <a class="cta primary" href="#projects">
+          <span class="i18n es">Explorar proyectos</span>
+          <span class="i18n en">Explore projects</span>
+        </a>
+        <a class="cta" href={pdfUrl} target="_blank">
+          <span class="i18n es">Abrir portfolio PDF</span>
+          <span class="i18n en">Open portfolio PDF</span>
+        </a>
+      </div>
+    </div>
+    <aside class="portfolio-proof">
+      <p class="eyebrow">
+        <span class="i18n es">Portfolio migrado</span>
+        <span class="i18n en">Migrated portfolio</span>
+      </p>
+      <strong>8</strong>
+      <span class="i18n es">colecciones</span>
+      <span class="i18n en">collections</span>
+      <strong>241</strong>
+      <span class="i18n es">piezas visuales</span>
+      <span class="i18n en">visual assets</span>
+      <strong>ES / EN</strong>
+      <span class="i18n es">experiencia bilingüe</span>
+      <span class="i18n en">bilingual experience</span>
+    </aside>
+  </section>
+
+  <section id="projects" class="stream-section">
+    <div class="section-kicker">
+      <p class="eyebrow">
+        <span class="i18n es">Todos los proyectos</span>
+        <span class="i18n en">All projects</span>
+      </p>
+      <h2>
+        <span class="i18n es">Abre cada colección para ver el trabajo completo.</span>
+        <span class="i18n en">Open each collection to see the complete work.</span>
+      </h2>
+    </div>
+
+    <div class="portfolio-project-grid">
+      {projects.map((project) => (
+        <a class="portfolio-project-card" href={project.url}>
+          <img src={project.cover} alt={`${project.title} cover`} loading="lazy" />
+          <div class="portfolio-project-card-copy">
+            <p class="eyebrow">
+              <span class="i18n es">{project.category.es}</span>
+              <span class="i18n en">{project.category.en}</span>
+            </p>
+            <h3>{project.title}</h3>
+            <p>
+              <span class="i18n es">{project.summary.es}</span>
+              <span class="i18n en">{project.summary.en}</span>
+            </p>
+            <span class="portfolio-project-count">
+              {project.images.length}
+              <span class="i18n es"> piezas</span>
+              <span class="i18n en"> assets</span>
+              {project.embeds.length > 0 && ` + ${project.embeds.length} videos`}
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section id="contact" class="stream-section contact-band">
+    <p class="eyebrow">
+      <span class="i18n es">Contacto</span>
+      <span class="i18n en">Contact</span>
+    </p>
+    <h2>
+      <span class="i18n es">¿Tienes contenido que necesita orden y ejecución?</span>
+      <span class="i18n en">Do you have content that needs structure and execution?</span>
+    </h2>
+    <div class="actions">
+      <a class="cta primary" href="mailto:catabg1410@gmail.com">catabg1410@gmail.com</a>
+      <a class="cta" href={homeUrl}>
+        <span class="i18n es">Volver al sitio</span>
+        <span class="i18n en">Back to site</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

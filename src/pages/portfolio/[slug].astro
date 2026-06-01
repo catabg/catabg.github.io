@@ -1,0 +1,303 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import portfolioProjects from '../../data/adobe-portfolio.json';
+
+export function getStaticPaths() {
+  return portfolioProjects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+const portfolioUrl = `${baseUrl}portfolio/`;
+const assetUrl = (path) => `${baseUrl}${path}`;
+const carouselConfigByProject = {
+  'youtube-content': { start: 2, sizes: [11] },
+  'box-club-content': { start: 0, sizes: [8, 5, 6] },
+  'medellin-insider-content': { start: 0, sizes: [6, 14, 9, 5, 10, 14, 6] },
+  'scottsdale-scoop': { start: 0, sizes: [12, 4, 4, 12, 4, 4, 4, 5, 4, 4, 16, 9] },
+  'proyecto-de-marca-de-salon-de-manicura-vana-studio': { start: 6, sizes: [2, 4] },
+  'contenido-para-redes-sociales-reels-y-fotografias': { start: 0, sizes: [7] }
+};
+const carouselConfig = carouselConfigByProject[project.slug] ?? { start: 0, sizes: [] };
+const carouselSizes = carouselConfig.sizes;
+const carouselGroups = carouselSizes.map((size, index) => {
+  const start = carouselConfig.start + carouselSizes.slice(0, index).reduce((total, current) => total + current, 0);
+  return project.images.slice(start, start + size);
+});
+const carouselEnd = carouselConfig.start + carouselSizes.reduce((total, current) => total + current, 0);
+const collageConfigByProject = {
+  'disenos-e-cards-invitaciones': { start: 0, sizes: [6, 6, 6, 5, 6, 4] }
+};
+const collageConfig = collageConfigByProject[project.slug] ?? { start: 0, sizes: [] };
+const collageSizes = collageConfig.sizes;
+const collageGroups = collageSizes.map((size, index) => {
+  const start = collageConfig.start + collageSizes.slice(0, index).reduce((total, current) => total + current, 0);
+  return project.images.slice(start, start + size);
+});
+const collageEnd = collageConfig.start + collageSizes.reduce((total, current) => total + current, 0);
+const galleryImages = project.images.filter((_, index) => (
+  (index < carouselConfig.start || index >= carouselEnd)
+  && (index < collageConfig.start || index >= collageEnd)
+));
+const detailDescriptions = {
+  'youtube-content': {
+    es: 'Edición de videos long-form y desarrollo de thumbnails, títulos y hooks para mejorar el empaque del contenido y su alcance. Este trabajo ayudó a que el canal creciera de 0 a 8K suscriptores en cinco meses.',
+    en: 'Edited long-form videos and developed thumbnails, titles, and hooks to improve content packaging and audience reach. Helped grow a YouTube channel from 0 to 8K subscribers in five months.'
+  },
+  'box-club-content': {
+    es: 'Carruseles y contenido para redes sociales de Box Club, una marca de CrossFit que vende productos importados de Estados Unidos. El trabajo incluye posts, reels y carruseles, además del copy para cada pieza. La cuenta creció orgánicamente de 2K a 11K seguidores.',
+    en: 'Carousel and social media content for Box Club, a CrossFit brand that sells products imported from the United States. The work includes creating posts, reels, and carousels, as well as writing copy for each piece. The account grew from 2K to 11K followers organically.'
+  },
+  'medellin-insider-content': {
+    es: 'Creación de contenido sobre eventos, noticias e información local de Medellín, Colombia, dirigido a audiencias locales y turistas extranjeros. Las piezas convierten planes y referencias de la ciudad en guías visuales fáciles de consultar.',
+    en: 'Content creation for events, news, and local information in Medellin, Colombia, focused on local audiences and international visitors. The work turns city plans and references into easy-to-scan visual guides.'
+  },
+  'scottsdale-scoop': {
+    es: 'Contenido editorial sobre restaurantes, eventos y planes en Scottsdale, Arizona. Cada carrusel resume información local y la convierte en recomendaciones visuales claras para descubrir la ciudad.',
+    en: 'Editorial content about restaurants, events, and things to do in Scottsdale, Arizona. Each carousel turns local information into clear visual recommendations for discovering the city.'
+  },
+  'proyecto-de-marca-de-salon-de-manicura-vana-studio': {
+    es: 'Media kit e identidad visual para VANA Studio, una marca de nail studio. El proyecto reúne dirección de marca, paleta, tipografía y aplicaciones visuales para construir una presencia reconocible.',
+    en: 'Media kit and visual identity for VANA Studio, a nail studio brand. The project brings together brand direction, color palette, typography, and visual applications to build a recognizable presence.'
+  },
+  'contenido-para-redes-sociales-reels-y-fotografias': {
+    es: 'Contenido para redes sociales de VANA Studio, incluyendo posts, reels y fotografía. Las piezas mantienen una identidad visual consistente y muestran los servicios de la marca en formatos pensados para Instagram.',
+    en: 'Social media content for VANA Studio, including posts, reels, and photography. The pieces keep a consistent visual identity and present the brand services in formats designed for Instagram.'
+  },
+  'disenos-e-cards-invitaciones': {
+    es: 'Diseño de invitaciones digitales para distintas celebraciones. Cada e-card adapta composición, color y tipografía al estilo del evento para entregar una pieza lista para compartir.',
+    en: 'Digital invitation design for different celebrations. Each e-card adapts composition, color, and typography to the event style, creating a share-ready piece.'
+  },
+  'florence-italy': {
+    es: 'Selección fotográfica realizada en Florencia, Italia, en 2024. La serie reúne detalles urbanos, arquitectura y escenas cotidianas observadas durante el recorrido por la ciudad.',
+    en: 'Photography selection captured in Florence, Italy, in 2024. The series brings together urban details, architecture, and everyday scenes observed while exploring the city.'
+  }
+};
+const detailDescription = detailDescriptions[project.slug];
+---
+
+<BaseLayout
+  title={`${project.title} - Catalina Brand Gómez`}
+  description={`${project.title} portfolio collection by Catalina Brand Gómez.`}
+>
+  <header class="site-header portfolio-detail-header" aria-label="Project navigation">
+    <a class="portfolio-home-link" href={portfolioUrl}>
+      <span aria-hidden="true">←</span>
+      <span class="i18n es">Todos los proyectos</span>
+      <span class="i18n en">All projects</span>
+    </a>
+    <div class="control-row">
+      <div class="lang-switch" role="group" aria-label="Selector de idioma">
+        <button class="lang-btn" type="button" data-lang-set="es" aria-pressed="false">ES</button>
+        <button class="lang-btn" type="button" data-lang-set="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false">
+        <span aria-hidden="true">◐</span>
+        <span data-theme-label>Modo día</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="portfolio-detail-hero">
+    <p class="eyebrow">
+      <span class="i18n es">Portfolio / colección completa</span>
+      <span class="i18n en">Portfolio / complete collection</span>
+    </p>
+    <h1>{project.title}</h1>
+    {
+      detailDescription && (
+        <p class="portfolio-intro">
+          <span class="i18n es">{detailDescription.es}</span>
+          <span class="i18n en">{detailDescription.en}</span>
+        </p>
+      )
+    }
+    <p class="portfolio-detail-count">
+      {project.images.length}
+      <span class="i18n es"> piezas visuales</span>
+      <span class="i18n en"> visual assets</span>
+      {project.embeds.length > 0 && ` / ${project.embeds.length} videos`}
+    </p>
+    {project.links.length > 0 && (
+      <div class="actions">
+        {project.links.map((link, index) => (
+          <a class:list={['cta', index === 0 && 'primary']} href={link.href} target="_blank" rel="noreferrer">
+            {link.text || `Open link ${index + 1}`}
+          </a>
+        ))}
+      </div>
+    )}
+  </section>
+
+  {project.embeds.length > 0 && (
+    <section class="stream-section">
+      <div class="section-kicker">
+        <p class="eyebrow">
+          <span class="i18n es">Video</span>
+          <span class="i18n en">Video</span>
+        </p>
+        <h2>
+          <span class="i18n es">Reels y piezas audiovisuales.</span>
+          <span class="i18n en">Reels and audiovisual work.</span>
+        </h2>
+      </div>
+      <div class="portfolio-embed-grid">
+        {project.embeds.map((embed, index) => (
+          <iframe
+            src={embed}
+            title={`${project.title} video ${index + 1}`}
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="stream-section">
+    <div class="section-kicker">
+      <p class="eyebrow">
+        <span class="i18n es">Galería</span>
+        <span class="i18n en">Gallery</span>
+      </p>
+      <h2>
+        <span class="i18n es">{carouselGroups.length > 0 ? 'Carruseles seleccionados.' : collageGroups.length > 0 ? 'Colecciones de invitaciones.' : 'Piezas seleccionadas.'}</span>
+        <span class="i18n en">{carouselGroups.length > 0 ? 'Selected carousels.' : collageGroups.length > 0 ? 'Invitation collections.' : 'Selected work.'}</span>
+      </h2>
+    </div>
+    {
+      carouselGroups.length > 0 ? (
+        <div class="portfolio-carousel-grid">
+          {carouselGroups.map((images, groupIndex) => (
+            <article class="portfolio-carousel" data-detail-carousel>
+              <div class="portfolio-carousel-head">
+                <h3>
+                  <span class="i18n es">Carrusel {String(groupIndex + 1).padStart(2, '0')}</span>
+                  <span class="i18n en">Carousel {String(groupIndex + 1).padStart(2, '0')}</span>
+                </h3>
+                <p>
+                  <span data-detail-carousel-current>1</span> / {images.length}
+                </p>
+              </div>
+              <div
+                class="portfolio-carousel-frame"
+                data-detail-carousel-frame
+                data-detail-carousel-images={JSON.stringify(images.map((image) => ({
+                  src: assetUrl(image.src),
+                  alt: image.alt
+                })))}
+              >
+                <img
+                  src={assetUrl(images[0].src)}
+                  alt={images[0].alt}
+                  class="portfolio-carousel-slide is-active"
+                  loading="lazy"
+                  data-detail-carousel-slide
+                />
+                <button type="button" class="canva-arrow prev" data-detail-carousel-prev aria-label={`Previous slide for carousel ${groupIndex + 1}`}>
+                  ‹
+                </button>
+                <button type="button" class="canva-arrow next" data-detail-carousel-next aria-label={`Next slide for carousel ${groupIndex + 1}`}>
+                  ›
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : null
+    }
+    {
+      collageGroups.length > 0 ? (
+        <div class="portfolio-collage-list">
+          {collageGroups.map((images, groupIndex) => (
+            <article class="portfolio-collage">
+              <h3>
+                <span class="i18n es">Colección {String(groupIndex + 1).padStart(2, '0')}</span>
+                <span class="i18n en">Collection {String(groupIndex + 1).padStart(2, '0')}</span>
+              </h3>
+              <div class="portfolio-collage-grid">
+                {images.map((image, imageIndex) => (
+                  <figure>
+                    <img
+                      src={assetUrl(image.src)}
+                      alt={image.alt}
+                      loading={groupIndex === 0 && imageIndex < 4 ? 'eager' : 'lazy'}
+                    />
+                  </figure>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : null
+    }
+    {
+      galleryImages.length > 0 && (
+        <div class:list={['portfolio-detail-gallery', project.slug === 'florence-italy' && 'portfolio-photo-gallery']}>
+          {galleryImages.map((image, index) => (
+            <figure>
+              <img
+                src={assetUrl(image.src)}
+                alt={image.alt}
+                loading={index < 4 ? 'eager' : 'lazy'}
+              />
+            </figure>
+          ))}
+        </div>
+      )
+    }
+  </section>
+
+  <section class="stream-section portfolio-back-band">
+    <p class="eyebrow">
+      <span class="i18n es">Portfolio</span>
+      <span class="i18n en">Portfolio</span>
+    </p>
+    <h2>
+      <span class="i18n es">Sigue explorando las demás colecciones.</span>
+      <span class="i18n en">Keep exploring the other collections.</span>
+    </h2>
+    <a class="cta primary" href={portfolioUrl}>
+      <span class="i18n es">Ver todos los proyectos</span>
+      <span class="i18n en">View all projects</span>
+    </a>
+  </section>
+
+  <script is:inline>
+    (() => {
+      document.querySelectorAll('[data-detail-carousel]').forEach((carousel) => {
+        const frame = carousel.querySelector('[data-detail-carousel-frame]');
+        const slide = carousel.querySelector('[data-detail-carousel-slide]');
+        const currentNode = carousel.querySelector('[data-detail-carousel-current]');
+        const previousButton = carousel.querySelector('[data-detail-carousel-prev]');
+        const nextButton = carousel.querySelector('[data-detail-carousel-next]');
+        const images = JSON.parse(frame?.getAttribute('data-detail-carousel-images') || '[]');
+        let current = 0;
+
+        const render = () => {
+          if (!slide || images.length === 0) return;
+
+          slide.src = images[current].src;
+          slide.alt = images[current].alt;
+
+          if (currentNode) currentNode.textContent = String(current + 1);
+        };
+
+        previousButton?.addEventListener('click', () => {
+          current = (current - 1 + images.length) % images.length;
+          render();
+        });
+
+        nextButton?.addEventListener('click', () => {
+          current = (current + 1) % images.length;
+          render();
+        });
+
+        render();
+      });
+    })();
+  </script>
+</BaseLayout>
