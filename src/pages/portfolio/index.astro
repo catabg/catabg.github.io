@@ -6,6 +6,75 @@ const baseUrl = import.meta.env.BASE_URL;
 const homeUrl = baseUrl;
 const pdfUrl = `${baseUrl}portfolio/Catalina_Brand_Portfolio_2026.pdf`;
 
+const portfolioVideos = [
+  {
+    brand: 'Box Club',
+    platform: 'Instagram',
+    summary: {
+      es: 'Reels de producto, entrenamiento y comunidad para una marca CrossFit.',
+      en: 'Product, training, and community reels for a CrossFit brand.'
+    },
+    videos: [
+      {
+        postUrl: 'https://www.instagram.com/p/DPohAfKDXQp/',
+        embedUrl: 'https://www.instagram.com/p/DPohAfKDXQp/embed/captioned/'
+      },
+      {
+        postUrl: 'https://www.instagram.com/p/DXzbuAapeC1/',
+        embedUrl: 'https://www.instagram.com/p/DXzbuAapeC1/embed/captioned/'
+      },
+      {
+        postUrl: 'https://www.instagram.com/p/DF-bF12ojWs/',
+        embedUrl: 'https://www.instagram.com/p/DF-bF12ojWs/embed/captioned/'
+      }
+    ]
+  },
+  {
+    brand: 'BMX Antioquia',
+    platform: 'TikTok',
+    summary: {
+      es: 'Videos cortos de deporte, ritmo y presencia de marca para la comunidad BMX.',
+      en: 'Short-form sports videos with pace and brand presence for the BMX community.'
+    },
+    videos: [
+      {
+        postUrl: 'https://www.tiktok.com/@bmxantioquia/video/7445704690211425542',
+        embedUrl: 'https://www.tiktok.com/embed/v2/7445704690211425542'
+      },
+      {
+        postUrl: 'https://www.tiktok.com/@bmxantioquia/video/7445055460043918647',
+        embedUrl: 'https://www.tiktok.com/embed/v2/7445055460043918647'
+      },
+      {
+        postUrl: 'https://www.tiktok.com/@bmxantioquia/video/7445420666150456582',
+        embedUrl: 'https://www.tiktok.com/embed/v2/7445420666150456582'
+      }
+    ]
+  },
+  {
+    brand: 'VANA Studio',
+    platform: 'Instagram',
+    summary: {
+      es: 'Reels de beauty y nail studio con una direccion visual limpia y femenina.',
+      en: 'Beauty and nail studio reels with a clean, feminine visual direction.'
+    },
+    videos: [
+      {
+        postUrl: 'https://www.instagram.com/p/C-F8nvNtxhQ/',
+        embedUrl: 'https://www.instagram.com/p/C-F8nvNtxhQ/embed/captioned/'
+      },
+      {
+        postUrl: 'https://www.instagram.com/p/DBuHTLfNTqW/',
+        embedUrl: 'https://www.instagram.com/p/DBuHTLfNTqW/embed/captioned/'
+      },
+      {
+        postUrl: 'https://www.instagram.com/p/C-xhFUkoU6u/',
+        embedUrl: 'https://www.instagram.com/p/C-xhFUkoU6u/embed/captioned/'
+      }
+    ]
+  }
+];
+
 const projectDetails = {
   'youtube-content': {
     category: { es: 'Video editing / YouTube', en: 'Video editing / YouTube' },
@@ -87,6 +156,10 @@ const projects = portfolioProjects.map((project) => ({
       <a href="#projects">
         <span class="i18n es">Proyectos</span>
         <span class="i18n en">Projects</span>
+      </a>
+      <a href="#reels">
+        <span class="i18n es">Reels</span>
+        <span class="i18n en">Reels</span>
       </a>
       <a href="#contact">
         <span class="i18n es">Contacto</span>
@@ -181,6 +254,51 @@ const projects = portfolioProjects.map((project) => ({
             </span>
           </div>
         </a>
+      ))}
+    </div>
+  </section>
+
+  <section id="reels" class="stream-section portfolio-reels-section">
+    <div class="section-kicker">
+      <p class="eyebrow">
+        <span class="i18n es">Reels y videos</span>
+        <span class="i18n en">Reels and videos</span>
+      </p>
+      <h2>
+        <span class="i18n es">Trabajo short-form publicado en redes.</span>
+        <span class="i18n en">Short-form work published on social.</span>
+      </h2>
+    </div>
+
+    <div class="portfolio-reel-stack">
+      {portfolioVideos.map((collection) => (
+        <article class="portfolio-reel-collection">
+          <div class="portfolio-reel-copy">
+            <p class="eyebrow">{collection.platform}</p>
+            <h3>{collection.brand}</h3>
+            <p>
+              <span class="i18n es">{collection.summary.es}</span>
+              <span class="i18n en">{collection.summary.en}</span>
+            </p>
+          </div>
+          <div class="portfolio-reel-grid">
+            {collection.videos.map((video, index) => (
+              <div class="portfolio-reel-frame">
+                <iframe
+                  src={video.embedUrl}
+                  title={`${collection.brand} ${collection.platform} video ${index + 1}`}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+                <a href={video.postUrl} target="_blank" rel="noreferrer">
+                  <span class="i18n es">Abrir video original</span>
+                  <span class="i18n en">Open original video</span>
+                </a>
+              </div>
+            ))}
+          </div>
+        </article>
       ))}
     </div>
   </section>
